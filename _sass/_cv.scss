@@ -1,0 +1,20 @@
+.vcard { @include clearfix; }
+.vcard>h1 { float: left; white-space: nowrap; }
+.vcard>address { float: right; text-align: right; }
+.vcard>dl { float: right; clear: right; min-width: 15em; }
+
+.cv>section { margin: 0 0 3em; }
+
+.cv ol { list-style: none; margin: 0; padding: 0; }
+.cv ol>li+li { font-size: .889em; line-height: 1.375; }
+.cv ul>li { list-style-type: disc; }
+
+.date { font-size: .778em; text-transform: uppercase; letter-spacing: .05em; }
+
+
+// specific sections
+
+#personal-statement>p { font-size: 1.222em; line-height: 1.364; margin: 0 2.5em 1.5em; }
+
+#portfolio, #references { width: 50%; float: left; }
+#portfolio::after, #references::after { content: none; }
