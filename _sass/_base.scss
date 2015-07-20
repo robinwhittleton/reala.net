@@ -23,6 +23,8 @@ dd { float: right; margin: 0; padding: 0; }
 
 .meta { font-size: .778em; text-transform: uppercase; letter-spacing: .05em; }
 
+.notice { background: $green; color: #fff; margin: -1em -1em 2em; padding: 1em; }
+
 // Icons
 .icon {
     > svg {
