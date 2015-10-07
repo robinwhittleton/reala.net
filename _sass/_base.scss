@@ -11,7 +11,7 @@ a:focus, a:hover { text-decoration: underline; }
 
 address { font-style: normal; }
 
-abbr { border: 0; }
+abbr { border: 0; text-decoration: none; }
 abbr[title] { cursor: help; }
 
 ul, ol { margin: 0 0 1em 1.5em; padding: 0; }
