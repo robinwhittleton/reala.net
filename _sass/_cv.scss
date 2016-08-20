@@ -9,12 +9,7 @@
 .cv ol>li+li { font-size: .889em; line-height: 1.375; }
 .cv ul>li { list-style-type: disc; }
 
-.meta { font-size: .778em; text-transform: uppercase; letter-spacing: .05em; }
-
 
 // specific sections
 
 #personal-statement>p { font-size: 1.222em; line-height: 1.364; margin: 0 2.5em 1.5em; }
-
-#portfolio, #references { width: 50%; float: left; }
-#portfolio::after, #references::after { content: none; }

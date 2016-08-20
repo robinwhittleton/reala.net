@@ -1,13 +1,6 @@
-body { max-width: 1200px; margin: 0 auto; }
+body { max-width: 1200px; margin: 0 auto; padding: 1em 0; }
 
-.site-header { border-bottom: 1px solid $grey; padding: 1em; @include clearfix; }
-.site-title { float: left; }
-.site-header>nav { float: right; }
-.site-header ul { margin: 0; padding: 0; list-style: none; }
-.site-header li { display: inline-block; }
-.site-header li::before { content: " / "; margin: 0 .5em; }
-.site-header li:first-child::before { content: none; }
-
+.site-header { border-bottom: 1px solid $grey; padding: 0 0 1em; @include clearfix; }
 
 main { padding: 1em; }
 
