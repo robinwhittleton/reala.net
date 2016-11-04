@@ -1,8 +1,8 @@
-body { font: 1.125em/1.389 $base-font-family; margin: 0; background: #fff; text-rendering: optimizeLegibility; }
+body { font: 1.25em/1.25 $base-font-family; margin: 0; background: #fff; text-rendering: optimizeLegibility; }
 
-h1 { font: 600 2em/1.222 $heading-font-family; font-stretch: condensed; margin: 0 0 1em; }
-h2 { font: 600 1.556em/1.214 $heading-font-family; font-stretch: condensed; margin: 0 0 1em; }
-h3 { font: 700 1.111em/1.2 $base-font-family; margin: 0 0 .25em; }
+h1 { font: 600 1.75em/1.286 $heading-font-family; font-stretch: condensed; margin: 0 0 1em; }
+h2 { font: 600 1.4em/1.214 $heading-font-family; font-stretch: condensed; margin: 0 0 1em; }
+h3 { font: 700 1.1em/1.182 $base-font-family; margin: 0 0 .25em; }
 h4 { font: 700 1em/1.2 $base-font-family; margin: 0 0 .25em; }
 
 p { margin: 0 0 1em; }
@@ -18,11 +18,11 @@ abbr[title] { cursor: help; }
 ul, ol { margin: 0 0 1em 1.5em; padding: 0; }
 
 dl { @include clearfix; }
-dt { font-size: .778em; text-transform: uppercase; letter-spacing: .05em; float: left; clear: both; margin: .358em 0 0; padding: 0; }
+dt { font-size: .8em; text-transform: uppercase; letter-spacing: .05em; float: left; clear: both; margin: .358em 0 0; padding: 0; }
 dd { float: right; margin: 0; padding: 0; }
 
 
-.meta { font-size: .778em; text-transform: uppercase; letter-spacing: .05em; }
+.meta { font-size: .8em; text-transform: uppercase; letter-spacing: .05em; }
 
 .notice { background: $green; color: #fff; margin: -1em -1em 2em; padding: 1em; }
 
