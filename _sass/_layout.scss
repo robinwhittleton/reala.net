@@ -1,6 +1,28 @@
 body { max-width: 900px; margin: 0 auto; padding: 1em 0; }
 
-.site-header { border-bottom: 1px solid $grey; padding: 0 0 1em; @include clearfix; }
+.site-header {
+	border-bottom: 1px solid $grey;
+	padding: 0 0 1em;
+	display: flex;
+}
+
+nav {
+	margin-left: auto;
+}
+
+nav > ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav li:not(:first-child)::before {
+	content: " / ";
+}
 
 main { padding: 1em; }
 

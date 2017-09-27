@@ -1,0 +1,19 @@
+.posts {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.post {
+	margin-bottom: 2em;
+}
+
+.post img {
+	max-width: 100%;
+}
+
+.attribution {
+	background: $light-grey;
+	padding: 1em;
+	margin-bottom: 1em;
+}
