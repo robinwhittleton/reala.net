@@ -1,0 +1,132 @@
+---
+layout: post_gds
+title: Gaining understanding of the browsers people use
+canonical_url: https://gdstechnology.blog.gov.uk/2016/10/21/gaining-understanding-of-the-browsers-people-use/
+---
+
+<p><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/Welcome-to-GOV.UK-pic.jpg"><img class="alignnone size-full wp-image-1938" src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/Welcome-to-GOV.UK-pic.jpg" alt="Screen showing GOV.UK homepage" srcset="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/Welcome-to-GOV.UK-pic.jpg 800w, https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/Welcome-to-GOV.UK-pic-300x225.jpg 300w, https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/Welcome-to-GOV.UK-pic-768x576.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="600"></a></p>
+<p>GOV.UK gets a lot of visits from people in the UK and further afield. We keep a record of all visits and use this data to support as many users as possible.</p>
+
+{{ excerpt_separator }}
+
+<h2>Deciding which browsers to test</h2>
+<p>We’ll try to support any user who comes to GOV.UK. We want people to be able to use whatever browser or device they have to access the service or content they need.</p>
+<p>We recommend government developers test their services on the top 95% of browsers employed by our users. The list of these browsers is on the Service Manual’s <a href="https://www.gov.uk/service-manual/user-centred-design/browsers-and-devices.html">browser and device page</a>, which is updated a few times every year.</p>
+<p>For example, our most used browser currently is Safari on iOS. We take the percentage of users who access GOV.UK with that, then add on the percentage of people using the second most used browser: Chrome on Windows. We continue until we’ve got to 95% of our users.</p>
+<p>This figure isn’t a rigid cut-off point. We recommend that developers look at their own service’s analytics and user research to better understand if their specific users use different technologies to the overall GOV.UK statistics. This will give them a better chance of meeting their users’ needs. At GDS, our service teams always consider the particular needs of small groups of browser users. For example, sometimes we realise that it's hard or impossible for users to upgrade their browser and we’ll carry on testing browsers for them even if they don’t fit into the top 95%.</p>
+<p>Once we know which browsers we’re going to test, we place them into one of two groups. ‘Compliant’ browsers should meet users’ expectations. While one compliant browser doesn’t have to exactly match the specifications of other compliant browsers (for example the font rendering may be slightly different), users should never feel like anything is wrong with the site.</p>
+<p>Browsers we call ‘functional’ may not render content perfectly, and may miss out on some of the extra functionality that can be added with JavaScript. The user should still be able to &nbsp;access information or services with a reasonable level of confidence. When evaluating browsers during development, a developer needs to consider how much confidence users need to have in the end product or service: a user trying to <a href="https://www.gov.uk/government/publications/introducing-govuk-verify/introducing-govuk-verify">verify their identity</a> might need to have more trust in a service interface than one looking up <a href="https://www.gov.uk/fishing-licences">how to apply for a fishing licence</a>.</p>
+<p>If a user’s browser or device is too old to work properly with GOV.UK then our support may help them upgrade their software or provide alternative ways to access their needed content or services. Users with old browsers on GOV.UK see a banner with a link to <a href="https://www.gov.uk/help/browsers">a page to help them upgrade</a>.</p>
+<p><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/webbrowser.png"><img class="alignnone size-full wp-image-1943" src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/webbrowser.png" alt="webbrowser" srcset="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/webbrowser.png 865w, https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/webbrowser-300x98.png 300w, https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2016/10/webbrowser-768x252.png 768w" sizes="(max-width: 865px) 100vw, 865px" width="865" height="284"></a></p>
+<h2>GOV.UK browser statistics</h2>
+<p>Here’s a table of the most common browsers people used to visit GOV.UK during September 2016.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Number of visitors</th>
+<th>Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Safari on iOS</td>
+<td>22,575,217</td>
+<td>24.73%</td>
+</tr>
+<tr>
+<td>Chrome on Windows</td>
+<td>20,411,444</td>
+<td>22.36%</td>
+</tr>
+<tr>
+<td>Internet Explorer 11</td>
+<td>13,769,015</td>
+<td>15.08%</td>
+</tr>
+<tr>
+<td>Chrome on Android</td>
+<td>13,555,862</td>
+<td>14.85%</td>
+</tr>
+<tr>
+<td>Firefox on Windows</td>
+<td>3,973,448</td>
+<td>4.35%</td>
+</tr>
+<tr>
+<td>Edge on Windows</td>
+<td>3,772,275</td>
+<td>4.13%</td>
+</tr>
+<tr>
+<td>Safari on macOS</td>
+<td>3,690,759</td>
+<td>4.04%</td>
+</tr>
+<tr>
+<td>Chrome on macOS</td>
+<td>2,062,667</td>
+<td>2.26%</td>
+</tr>
+<tr>
+<td>Chrome on iOS</td>
+<td>973,166</td>
+<td>1.07%</td>
+</tr>
+<tr>
+<td>Internet Explorer 9</td>
+<td>931,711</td>
+<td>1.02%</td>
+</tr>
+<tr>
+<td>Internet Explorer 10</td>
+<td>702,852</td>
+<td>0.77%</td>
+</tr>
+<tr>
+<td>Android Browser</td>
+<td>701,198</td>
+<td>0.77%</td>
+</tr>
+<tr>
+<td>Internet Explorer 8</td>
+<td>684,908</td>
+<td>0.75%</td>
+</tr>
+<tr>
+<td>Safari (in-app)</td>
+<td>505,950</td>
+<td>0.55%</td>
+</tr>
+<tr>
+<td>Amazon Silk</td>
+<td>438,687</td>
+<td>0.48%</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>210,051</td>
+<td>0.23%</td>
+</tr>
+<tr>
+<td>Internet Explorer 7</td>
+<td>199,934</td>
+<td>0.22%</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>2,134,269</td>
+<td>2.34%</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td>Total sessions</td>
+<td>91,293,413</td>
+<td></td>
+</tr>
+</tfoot>
+</table>
+<p>Currently Internet Explorer 8, 9 and 10 are pretty low down in the list, and getting services working well in them consumes a fair amount of development time. We’ll probably move these browsers to functional in the next few months depending on how quickly people stop using them. At the same time we’ll also probably stop testing old versions of Safari on iOS. Older versions of Safari (and other modern browsers) usually display GOV.UK pages fine, but the effort to test in them for every service means that it’s not worth it given the number of people using them.</p>
+<p>Looking deeper into the statistics we also see some people using older and less common browsers. In September we still had 3,651 people using Internet Explorer 6 to access GOV.UK. We also see a few people using browsers that come with games consoles. We had 2,842 users visit with the Playstation 3 browser and 596 with their Playstation Vita. We had 933 visit on their Nintendo Wii / Wii U and 176 on their Nintendo 3DS. I’d also like to congratulate the 5 people still able to make use of Firefox on IBM OS/2 in September 2016.</p>
