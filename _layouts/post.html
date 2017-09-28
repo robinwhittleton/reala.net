@@ -3,8 +3,12 @@ layout: default
 ---
 
 <article class="post">
+	{% if page.source == 'gds' %}
+		{% include gds_attribution.html %}
+	{% elsif page.source == 'kyan' %}
+		{% include kyan_attribution.html %}
+	{% endif %}
 	<h1>{{ page.title }}</h1>
 	<p><time datetime="{{ page.date }}">{{ page.date | date: site.date_format }}</time></p>
 	{{ content }}
-	{% include gds_attribution.html %}
 </article>

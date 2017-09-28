@@ -1,6 +1,8 @@
 <div class="attribution">
 	<small>
 		Contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>.
-		{% include canonical_attribution.html %}
+		{% if page.canonical_url %}
+			This content was originally published at <a href="{{ page.canonical_url }}">{{ page.canonical_url }}</a>.
+		{% endif %}
 	</small>
 </div>
