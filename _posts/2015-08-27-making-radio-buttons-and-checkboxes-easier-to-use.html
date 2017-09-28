@@ -1,0 +1,169 @@
+---
+layout: post_gds
+title: Making radio buttons and checkboxes easier to use
+canonical_url: https://gdstechnology.blog.gov.uk/2015/08/27/making-radio-buttons-and-checkboxes-easier-to-use/
+---
+
+<p>At GDS we’re always looking for ways to make our pages easier for anyone&nbsp;to use. One particular area that comes up in user research is the difficulty people have with clicking on small checkboxes or radio buttons in forms. Our standard library of form elements does <a href="http://govuk-elements.herokuapp.com/#form-radio-buttons">contain them in a clickable grey box</a>, but because the relation between the label and the control has to be manually coded, every website that doesn’t do this trains people to only click directly on the control. It would be nice if we could adjust the size of checkboxes and radio buttons to make them larger where appropriate.</p>
+
+{{ excerpt_separator }}
+
+<p>A while ago, <a href="http://www.456bereastreet.com/">Roger Johansson</a> wrote a set of articles where he <a href="http://www.456bereastreet.com/archive/200701/styling_form_controls_with_css_revisited/">investigated how form controls could be styled</a>. This highlighted some difficulties in resizing radio buttons and checkboxes. I was interested in whether anything had changed since this was written.</p>
+<p>Generally when you find a set of visual differences between browsers the first place to turn is the specifications. Somewhat unhelpfully though, CSS2.1 has <a href="http://www.w3.org/TR/CSS21/conform.html#conformance">this to say about form styling</a>:</p>
+<blockquote>
+	<p>CSS 2.1 does not define which properties apply to form controls and frames, or how CSS can be used to style them. User agents may apply CSS properties to these elements. Authors are recommended to treat such support as experimental.</p>
+</blockquote>
+<p>I’d like to say that things have changed since CSS2.1 was published, but there’s precious little in CSS3 beyond <a href="http://www.w3.org/TR/css3-ui/#default-style-sheet">very basic layout hints</a>.</p>
+<p>If the specifications don’t tell browsers what to do, maybe they’ve settled on an unofficial standard between themselves? I put together a quick test page with radio buttons and checkboxes set to varying different sizes and ran it through a set of browsers to see what they made of it. With evergreen browsers I only tested the latest version. The results are in the following table if you want a more detailed view each image links to the full size version.</p>
+<table>
+	<thead>
+		<tr>
+			<th>Browser</th>
+			<th>Result</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Chrome on Windows 7</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_chrome.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_chrome.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Chrome on Windows 8.1</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_8.1_chrome.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_8.1_chrome.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Chrome on Windows 10</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_chrome.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_chrome.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Firefox on Windows 7</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_firefox.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_firefox.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Firefox on Windows 8.1</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_8.1_firefox.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_8.1_firefox.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Firefox on Windows 10</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_firefox.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_firefox.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Opera on Windows 7</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_opera.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_opera.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Opera on Windows 8.1</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_8.1_opera.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_8.1_opera.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Opera on Windows 10</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_opera.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_opera.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Internet Explorer 7 on Windows XP</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_xp_ie7.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_xp_ie7.png" alt="Sized, but pixellated or blurry" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Internet Explorer 8 on Windows 7</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_ie8.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_ie8.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Internet Explorer 9 on Windows 7</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_ie9.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_7_ie9.png" alt="Sized, but pixellated or blurry" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Internet Explorer 10 on Windows 8</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_8_ie10.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_8_ie10.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Internet Explorer 11 on Windows 10</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_ie11.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_ie11.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Edge on Windows 10</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_edge.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_10_edge.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Chrome on OS X 10.10</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.10_chrome.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.10_chrome.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Firefox on OS X 10.10</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.10_firefox.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.10_firefox.png" alt="Sized, but pixellated or blurry" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Opera on OS X 10.10</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.10_opera.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.10_opera.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Safari on OS X 10.10</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.10_safari.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.10_safari.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Safari on OS X 10.11</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.11_safari.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/osx_10.11_safari.png" alt="No change in rendered size" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Chrome on Android 4.4</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/android_4.4_chrome.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/android_4.4_chrome.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Chrome on Android 5.1</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/android_5.1_chrome.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/android_5.1_chrome.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Safari on iOS 6</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/ios_6_safari.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/ios_6_safari.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Safari on iOS 8.3</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/ios_8_safari.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/ios_8_safari.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>Internet Explorer on Windows Mobile 8.1</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_mobile_8.1_ie.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/win_mobile_8.1_ie.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+		<tr>
+			<td>FirefoxOS 2.2</td>
+			<td><a href="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/firefoxos_2.2.png"><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/08/firefoxos_2.2.png" alt="Sized and crisp" width="80"></a></td>
+		</tr>
+	</tbody>
+</table>
+<p>These results fell broadly into three different categories.</p>
+<h2>No change in rendered size</h2>
+<ul>
+	<li>Firefox on Windows</li>
+	<li>Opera on Windows 7</li>
+	<li>Opera on Windows 8.1</li>
+	<li>Internet Explorer 8 on Windows 7</li>
+	<li>Chrome on OS X</li>
+	<li>Opera on OS X</li>
+	<li>Safari 8 on OS X 10.10</li>
+	<li>Safari 9 on OS X 10.11</li>
+</ul>
+<h2>Sized, but pixellated or blurry</h2>
+<ul>
+	<li>Internet Explorer 7 on XP</li>
+	<li>Internet Explorer 9 on Windows 7</li>
+	<li>Firefox on OS X 10.10</li>
+</ul>
+<h2>Sized and crisp</h2>
+<ul>
+	<li>Chrome on Windows</li>
+	<li>Opera on Windows 10</li>
+	<li>Internet Explorer 10 on Windows 8</li>
+	<li>Internet Explorer 11 on Windows 10</li>
+	<li>Edge on Windows 10</li>
+	<li>Chrome on Android</li>
+	<li>Safari on iOS</li>
+	<li>Internet Explorer on Windows Mobile 8.1</li>
+	<li>FirefoxOS 2.2</li>
+</ul>
+<p>There are some oddities with the above results that are worth mentioning.</p>
+<p>The browsers that display no change in the size of the rendered button always create a blank space of the specified size and centre the input within it. Even if the size of the control isn’t changing you can rely on the rest of your content being laid out consistently.</p>
+<p>The <a href="http://www.webkit.org/">WebKit</a> (and <a href="http://www.chromium.org/blink">Blink</a>) based browsers on OS X do resize in one case: they’ll drop to a smaller checkbox or radio button when set to below 14 pixels wide and high.</p>
+<p>Safari on iOS has set the corner radius of radio buttons to a fixed number of pixels. When you increase the overall size of the control the corners stay at the same radius, which makes the control look progressively more square. Even at 50px&nbsp;×&nbsp;50px it’s distinguishable from a checkbox, but this feels like an issue that could be easily fixed.</p>
+<p>Opera on Windows 10 for some reason uses Windows Classic themed controls. It doesn’t look awful and it does resize up nicely at least, but given that the default Windows 10 controls look really good at any resolution I’d suggest this could be changed easily.</p>
+<h2>Where does this leave us?</h2>
+<p>The mobile browsers I tested have the least problems: perhaps due to the nature of a zoomable interface by default they all use vectors that scale nicely. On desktop, support for resizing is difficult to untangle. Browsers on Windows 10 (apart from Firefox) generally do a nice job which is positive&nbsp;for future development, but on OS X it’s completely the opposite with only Firefox supporting resizing (and even then blurring the resized controls).</p>
+<p>If we want even basic support for resizing radio buttons and checkboxes on desktop, we'll need to speak to the browser development community&nbsp;to have a better understanding&nbsp;on what’s feasible and sensible.</p>

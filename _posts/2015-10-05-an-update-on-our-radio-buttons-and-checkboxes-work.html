@@ -1,0 +1,26 @@
+---
+layout: post_gds
+title: An update on our radio buttons and checkboxes work
+canonical_url: https://gdstechnology.blog.gov.uk/2015/10/05/an-update-on-our-radio-buttons-and-checkboxes-work/
+---
+
+<p><img src="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/10/IMG_2029-final.jpg" alt="Checkboxes" class="alignnone size-full wp-image-1228" srcset="https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/10/IMG_2029-final.jpg 636w, https://gdstechnology.blog.gov.uk/wp-content/uploads/sites/31/2015/10/IMG_2029-final-300x170.jpg 300w" sizes="(max-width: 636px) 100vw, 636px" width="636" height="360"></p>
+<p>Recently we talked about <a href="/2015/08/27/making-radio-buttons-and-checkboxes-easier-to-use/">resizing checkboxes and radios</a>; I thought I’d give a quick update as to what happened next.<span id="more-1197"></span></p>
+
+{{ excerpt_separator }}
+
+<h2>Improving things with industry</h2>
+<p>The first thing we did, was to identify specific problems in browsers we’d discovered during our research. Once we had these written up, we filed (or updated) the following issues:</p>
+<ul>
+	<li>Firefox (Windows) – <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=446511">Regression: Checkboxes can no longer be resized using CSS</a></li>
+	<li>Opera (Windows 10) – Radios and checkboxes use Windows Classic styles on Windows 10 (issue ID DNA-43148)</li>
+	<li>Chrome (OS X) – <a href="https://code.google.com/p/chromium/issues/detail?id=527068">Can’t arbitrarily resize radios / checkboxes</a></li>
+	<li>Firefox (OS X) – <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1200559">Consider hand-rolling radios and checkboxes for resizability</a></li>
+	<li>Safari (OS X) – <a href="https://bugs.webkit.org/show_bug.cgi?id=148675">Can’t arbitrarily resize radios / checkboxes</a></li>
+	<li>Safari (iOS) – <a href="https://bugs.webkit.org/show_bug.cgi?id=148676">Radio buttons have a fixed border radius making them look square when resized</a></li>
+</ul>
+<p>We’ve had some indication that there’s interest in fixing this issue from at least a few of the companies. Opera fixed their issue as soon as they were notified, although it hasn’t appeared in a released version of the browser yet.</p>
+<h2>Improving things ourselves</h2>
+<p>We also took some action at our end.</p>
+<p>Looking at our browser statistics, updating our styles to make radio buttons and inputs bigger would improve the situation for around 82% of our users. A further 14% or so would see no difference, and (a decreasing) 4% would receive a slightly worse presentation. We decided on the basis of these figures to <a href="https://github.com/alphagov/govuk_elements/pull/98">increase the size of our ‘block label’ checkboxes and radios</a> and to do the same to <a href="https://github.com/alphagov/static/pull/645">our ‘option select’ component</a>. These aren’t live yet but will gradually roll out as parts of the system are updated.</p>
+<p>Through a combination of our own fixes and updates from browser developers, we’re hopeful that users will have an easier time using both GOV.UK and the wider web in the future.</p>

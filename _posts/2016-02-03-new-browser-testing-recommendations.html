@@ -1,0 +1,18 @@
+---
+layout: post_gds
+title: New browser testing recommendations
+canonical_url: https://gdstechnology.blog.gov.uk/2016/02/03/new-browser-testing-recommendations/
+---
+
+<p>We recently updated our <a href="https://www.gov.uk/service-manual/user-centred-design/browsers-and-devices.html">browsers and devices list</a> with our current testing recommendations. As a general rule (although there are of course exceptions) we recommend testing pages and services against the top 95% of browsers used to access GOV.UK. This latest version is an update to reflect the current spread of browsers.</p>
+
+{{ excerpt_separator }}
+
+<ul>
+	<li>Microsoft Edge is now firmly inside the 95% and should be tested. It’s an <a href="http://tomdale.net/2013/05/evergreen-browsers/">evergreen browser</a>, so only the latest version and the previous one are required to be tested.</li>
+	<li>Microsoft Internet Explorer 7 has has been removed from the table: its usage is under 0.3% of all visits to GOV.UK.</li>
+	<li>Safari 7 on OS X has dropped out of the 95%, so Safari 8 is the new baseline.</li>
+</ul>
+<h2>Compliant browsers</h2>
+<p>When we talk about compliant browsers, we mean browsers where the experience should be fundamentally the same for every user, regardless of which one they’re using. We also talk about functional browsers: those browsers might not present pages perfectly but their users should still be able to access the information or services they need.</p>
+<p>Internet Explorer 7 was the only browser marked as functional. Now that we have dropped it all browsers in the table are currently required to be compliant. At some point in the next few months (depending on its decrease in use) we may change Internet Explorer 8’s support level to functional. For the time being its usage is large enough that it should stay at compliant.</p>
