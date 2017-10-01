@@ -1,0 +1,22 @@
+---
+layout: post
+source: kyan
+title: Colophon the 2nd
+canonical_url: http://kyan.com/blog/2011/12/14/colophon-the-2nd
+---
+
+<p>I’ve had some requests for more info on the challenges involved in building the new site; read on for more.</p>
+
+{{ excerpt_separator }}
+
+<p>For the most part the design is actually fairly simple. Nice clean fonts and a clear rhythm, but I had strong design direction which always helps when building a new site. I sit back-to-back with the designer on this so I could just turn around and ask questions if I needed clarity.</p>
+	<h2>The carousel</h2>
+<p>The carousel was interesting to build as the finalised design didn’t come into place until quite late in the project. We originally just had a ‘standard’ site carousel built, but we always knew we wanted to do something more. In the end I sat down with <a href="/web/20160402025244/http://kyan.com/blog/authors/17/">Lee</a> and thrashed out an idea for the animation. He then went off and implemented exactly the design he wanted in Flash, which I then converted to <abbr>CSS</abbr> animation. This way of working appeals: I get design direction on the animation and timings as well as the static assets.</p>
+<p>The carousel was initially built with standard absolute position &amp; top animation using jQuery, but these turned out to be extremely slow on iPad (a target browser for the launch). Dropping in CSS3 translations fixed that, but obviously didn’t work on older browsers. In the end I found <a href="https://github.com/louisremi/jquery.transform.js">jquery.transform.js</a> that abstracted the interface and made it work on everything. Unfortunately (with a couple of weeks to go) I ran into alpha-transparency glitches and performance issues in IE7 and 8 that meant that turning off the animation in those browsers was the most expedient route to getting the site launched. Together, those are currently running at &lt;3% of total users anyway, so it’s not a huge issue and the site works better for them now regardless.</p>
+<p>One interesting (and annoying) bug I ran into on the carousel was jerkiness in Chrome. I use Firefox as my main development browser so didn’t really notice the problem until more in-depth testing. It turned out that the problem arose from me triggering hardware acceleration for iOS using the <code>-webkit-backface-visibility</code> trick. Chrome’s animation was much smoother when that line was removed; Safari on OS X performed about the same with it in or out. In the end I used a media query filter to hide the trigger from desktop Webkits: hopefully browser progress will obviate the need for such workarounds in the future.</p>
+<h2>Difficult decisions</h2>
+<p>A design request I didn’t implement in the end was a request for the team carousel to blur the images out towards the edges. After a bit of thinking and research I came up with a way to blur the photos after the animation finishes, but nothing that would blur in realtime as the slide animation happened. I suspect given time I could have done something, but a performant solution in the development time available wasn’t going to happen.</p>
+<h2>Webfont problems</h2>
+<p>Regarding the fonts, for the most part they were trivial to implement using <a href="http://webfonts.fonts.com/">webfonts.fonts.com</a>. The only surprise in that was when we moved all our assets to <a href="http://aws.amazon.com/s3/">Amazon S3</a>. We were self-hosting <a href="http://www.theleagueofmoveabletype.com/league-gothic">League Gothic</a> and it turns out that Amazon don’t have in place (or let you add) the <a href="https://developer.mozilla.org/En/HTTP_access_control">cross-site request header that Gecko needs</a> for font embedding across domains. Luckily we found that the original font that League was based on (<a href="http://webfonts.fonts.com/en-US/Project/ChooseFonts?ViewDetails=T&amp;ViewFontID=691796">Alternate Gothic #1</a>) was on fonts.com so we just moved over to that instead.</p>
+<h2>Fit and finish</h2>
+<p>What I really feel proud about with this site is not any one part of it, but that there was enough time available to add a really nice level of fit and finish to the whole thing. Even smaller subpages were graced with decent illustrations and I had time to make the interface feel as slick as possible to as many users as possible. This seems to have been borne out with the overwhelmingly positive feedback we’ve had from Twitter and our clients.</p>

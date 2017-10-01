@@ -12,6 +12,11 @@
 	max-width: 100%;
 }
 
+.post code {
+	-moz-tab-size: 2;
+	tab-size: 2;
+}
+
 .attribution {
 	background: $light-grey;
 	padding: 1em;

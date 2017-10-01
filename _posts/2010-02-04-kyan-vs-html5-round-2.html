@@ -1,0 +1,15 @@
+---
+layout: post
+source: kyan
+title: Kyan vs. HTML5, round 2
+canonical_url: http://kyan.com/blog/2010/2/4/kyan-vs-html5-round-2
+---
+
+<p>Back in October I posted an article on <a href="http://blog.kyanmedia.com/archives/2009/10/12/kyan_vs_html5/">our first steps with HTML5</a>. Unfortunately, since then we’ve tripped over a rather large stumbling block.</p>
+
+{{ excerpt_separator }}
+
+<p>That article dealt with the reworking of our intranet. Luckily for me as a front-end developer no-one in the company uses Internet Explorer; this isn’t the case in the wider world. IE has problems with the new HTML5 elements: it can’t style them at all. There is a <a href="http://code.google.com/p/html5shiv/">a solution</a> though (courtesy of <a href="http://w3future.com/weblog/">Sjoerd Visscher</a>): create each element once using Javascript and IE suddenly understands that they exist. On the whole this is a very good solution, undercut by one fatal flaw.</p>
+<h2>Print stylesheets</h2>
+<p>At Kyan we view a print stylesheet as a common courtesy to users. With it we can strip out headers and footers and just leave the page content. While printing though (for obvious reasons) Javascript isn’t executed. This breaks our html5shiv script and means that the new elements are unstylable in all current versions of IE.</p>
+<p>The workaround is to wrap all the new elements in wrapper <code>&lt;div&gt;</code>s and style those instead, but then you’re increasing the amount of markup compared to current HTML4 or XHTML1, and for the time being this isn’t really a tradeoff worth making. Of course, with the gradual reduction of IE in the marketplace this tradeoff is something we should keep on evaluating.</p>

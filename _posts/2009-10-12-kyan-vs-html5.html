@@ -1,0 +1,21 @@
+---
+layout: post
+source: kyan
+title: Kyan vs. HTML5
+canonical_url: http://kyan.com/blog/2009/10/12/kyan-vs-html5
+---
+
+<p>Here at Kyan we like to keep up to date, so new technologies regularly come under the spotlight. This week’s focus: HTML5. Jumping straight into an unknown is rarely a good idea for a client project, but with no such qualms about internal projects I elected to rework our intranet.</p>
+
+{{ excerpt_separator }}
+
+<p>First off, it’s important to point out that a lot of the promise of HTML5 comes from new technologies: the <a href="http://www.w3.org/TR/2009/WD-html5-20090825/the-canvas-element.html#the-canvas-element"><code>canvas</code> element</a>, <a href="http://www.w3.org/TR/2009/WD-html5-20090825/video.html#video"><code>&lt;video&gt;</code></a> and <a href="http://www.w3.org/TR/2009/WD-html5-20090825/video.html#audio"><code>&lt;audio&gt;</code></a>, and the new <code>&lt;input&gt;</code> types (previously known as <a href="http://www.whatwg.org/specs/web-forms/current-work/">Web Forms 2.0</a>). For our intranet these either have no obvious applications (<code>&lt;canvas&gt;</code> &amp; <code>&lt;video&gt;</code>) or aren’t implemented in the common browsers being used (for us that’s Safari, Chrome and Firefox). Where we can benefit currently is the extra semantic elements and the tidying up that comprises the majority of the specification.</p>
+<h2>So what specifically did we change?</h2>
+<ul>
+	<li>Simplified the header. The new simpler <code>&lt;!doctype&gt;</code> and <code>&lt;meta&gt;</code> elements remove a bunch of cruft, and I took the opportunity to simplify the linked <abbr>CSS</abbr> and Javascript.</li>
+	<li>Changed some of the in-page containers to their ‘added semantics’ versions. For example, where previously we were using a <code>&lt;div id="header"&gt;</code> we can now just use the HTML5 <code>&lt;header&gt;</code>.</li>
+	<li>Changed some of the text elements to be more semantic. For example, previously the <code>&lt;small&gt;</code> element was defined to mean ‘make this text smaller’. In HTML5 <a href="http://www.w3.org/TR/2009/WD-html5-20090825/text-level-semantics.html#the-small-element">it’s gained a semantic meaning</a> of ‘this text is smallprint’.</li>
+	<li>Ran the code through an HTML5 validator with some interesting results. There isn’t an official W3 HTML5 validator yet, but you can use their <a href="http://qa-dev.w3.org/wmvs/HEAD/">development version</a> (which is based on Henri Sivonen’s <a href="http://validator.nu/">validator.nu</a>). This is capable of some validation that the older <a href="http://validator.w3.org/">W3 validator</a> couldn’t do: e.g. warning if the number of table cells in a row doesn’t match the number of table headers.</li>
+</ul>
+<h2>The results</h2>
+<p>All in all, a lot of the benefit of this exercise came from a thorough reading the HTML5 spec and blogs like <a href="http://html5doctor.com/">HTML5 Doctor</a> even if we can’t directly apply those technologies yet. It also gave me a chance to refactor some of the older parts of the system into a more modern markup style. This should stand us in good stead when we start to use these technologies on a public-facing website.</p>

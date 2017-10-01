@@ -1,0 +1,32 @@
+---
+layout: post
+source: kyan
+title: When grids fall apart
+canonical_url: http://kyan.com/blog/2009/1/12/when-grids-fall-apart
+---
+
+<p>Around a couple of years ago the “what screen resolution should we design for?” argument had mostly become irrelevant. 640×480 was out, 800×600 was mostly out and 1024×768 was a reasonable minimum. With this step change over and <a href="http://www.subtraction.com/2007/03/18/oh-yeeaahh">new</a> <a href="http://960.gs/">grids</a> in place life should be easy, right?</p>
+
+{{ excerpt_separator }}
+
+<p>Think again. The intervening time has seen an explosion in web use on mobile devices and the future looks to only diverge from your standard 1024×768 grid you’ve settled on. So what different screens can you reasonably expect your users to view your site on?</p>
+<ul>
+	<li>Standard 4:3 monitors (1024×768, 1600×1200)</li>
+	<li>Widescreen 16:10 monitors on newer laptops and desktops (1280×800, 1440×900, 1920×1200)</li>
+	<li>Netbooks (800×480, 1024×600)</li>
+	<li>Smartphones (generally 480×320, but some bigger)</li>
+	<li>Games consoles and other TV connected devices (640×480 equivalent, HD is generally 1280×720)</li>
+</ul>
+<p>Luckily, device manufacturers for the most part have tried to accommodate the current web. It’s a selling point to support the “full web” so the CSS2.1 <code>@media handheld</code> declaration has fallen out of use. Smaller devices (mobiles and TV connected devices) try and solve the resolution problem by scaling the content dynamically, allowing the user to zoom in one one section of the screen then pan around to see the rest. This isn’t an ideal user experience but it’s perfectly acceptable.</p>
+<p>Users with older netbooks might have more problems. Zooming isn’t as fluid or obviously accessible on these devices, and the horizontal and vertical screen resolution can be severely constricted, partially due to under-optimised browser menus/toolbars. Conversely, users with bigger monitors may find that content optimised for 1024×768 resolution is uncomfortably small.</p>
+<h2>A better experience for users</h2>
+<p>Luckily, we have several options to provide a decent experience to as many users as possible. For people with high resolution monitors, most current PC browsers (with the exception of Safari) support <em>full content zooming</em>. This means that when a user chooses to zoom the entire view gets bigger, not just the text size. Alternatively, now that large monitors are common people are more likely to not maximise their browser window, which lets them use the remaining screen space for other applications.</p>
+<p>For really high pixel density machines (e.g. the recently announced <a href="http://club.vaio.sony.co.uk/clubvaio/gb/en/vaiopseries/page.jsp">Sony Vaio P</a> which has a 1600×768 <em>8″</em> screen) there’s not a lot that we can do as developers. In the future hopefully operating systems will be able to adapt better to high density screens, but for the time being users will have to learn to zoom for readable text.</p>
+<p>For users with lower resolution screens we have a few options. Traditional netbooks are probably the hardest to support: users maybe be running old browsers (e.g. Internet Explorer 6) which don’t have the ability to zoom the page, and may not have much vertical space to view. To cope with these devices it’s a good idea to try and keep the right column free of essential information in case it’s not visible to the user, and to maximise the amount of information ‘above the fold’ if possible while still keeping it readable.</p>
+<p>To cope with lots of different horizontal resolutions we could drop the fixed grid approach and use a liquid layout. These can be fairly difficult to produce in a user-friendly way, but a bit of thought (and judicious use of <code>min-width</code> and <code>max-width</code>) can produce a site that looks good and is friendly to use. The fact that browsers these days are very good at scaling images doesn’t hurt either. <a href="http://www.southglos.gov.uk/">South Gloucestershire Council’s site</a> is a good example of this approach: it copes well with a range of horizontal resolutions between 800 and 1000 pixels without breaking or getting excessively long lines of text.</p>
+<p>Mobile and TV connected devices tend to have fairly advanced browsers – <a href="http://www.opera.com/">Opera</a> and <a href="http://webkit.org/">Webkit</a> have both made big strides in this market. Luckily for us these browsers both support <a href="http://www.w3.org/TR/css3-mediaqueries/">CSS3 Media Queries</a>. This means that we can successfully target smaller screen sizes and create a nicer experience for them. We’ve used this method on <a href="http://www.kyanmedia.com/">our own site</a>:</p>
+
+<pre><code>&lt;link media="only screen and (max-device-width: 480px)"
+  href="/stylesheets/iphone.css" type="text/css" rel="stylesheet" /&gt;</code></pre>
+<p>I probably should have called the <abbr>CSS</abbr> file something different as the same styles will work well for most low resolution devices, but it’ll suffice. By adding in the extra <abbr>CSS</abbr> file we can reformat the grid to work well on a small screen. For example, we compress the site menu onto two lines and change the portfolio grid into a portfolio list.</p>
+<p>As long as you’re aware of the pitfalls we think it’s very possible to provide a good experience to users with many different resolutions.</p>

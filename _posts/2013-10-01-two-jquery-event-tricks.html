@@ -1,0 +1,40 @@
+---
+layout: post
+source: kyan
+title: Two jQuery event tricks
+canonical_url: http://kyan.com/blog/2013/10/1/two-jquery-event-tricks
+---
+
+<p>Everyone knows how to bind events in jQuery right?</p>
+<pre><code>$('a').on('click',function(){…});</code></pre>
+<p>Easy! There are a couple of nice extras though that are worth pointing out.</p>
+
+{{ excerpt_separator }}
+
+<h2>Binding to multiple events</h2>
+<p>jQuery will happy take a space separated string of event names instead of the one event. Why would you want to do this? Well, we recently built a site with functionality to trigger an animation as it scrolled into view:</p>
+
+<pre><code>$(window).on('scroll',function(){
+	// check scroll and trigger animation
+});</code></pre>
+<p>Once we added media queries we realised the element to be animated could appear if the page was resized without a scroll event being triggered. All we needed to do was add the resize event to the same handler binding.</p>
+
+<pre><code>$(window).on('scroll resize',function(){
+	// check scroll and trigger animation
+});</code></pre>
+<h2>Be careful while unbinding</h2>
+<p>Let’s take the previous example a step further. With out animation we only want to to trigger once when it first appears. The obvious solution would be something like this:</p>
+
+<pre><code>$(window).on('scroll resize',function(){
+	// check scroll
+	$(window).off('scroll resize');
+	// trigger animation
+});</code></pre>
+<p>This works, but at a cost: it removes <em>all</em> other scroll and resize events bound to window by any of your plugins. This obviously could cause some fairly major problems. Luckily, jQuery provides for just this situation. It’s possible to namespace your events simply by adding a <code>.namespace</code> to the end of each. Once namespaced you can selectively turn them off by passing the namepace into <code>$.off()</code>. Even more helpfully we can turn off an entire namespace simply by omitting the event name:</p>
+
+<pre><code>$(window).on('scroll.myPlugin resize.myPlugin',function(){
+	// check scroll
+	$(window).off('.myPlugin');
+	// trigger animation
+});</code></pre>
+<p>These couple of features deserve more use as they both reduce the amount of code you have to write and make it less likely to interfere with the rest of your system.</p>

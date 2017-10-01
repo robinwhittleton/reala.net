@@ -1,0 +1,69 @@
+---
+layout: post
+source: kyan
+title: Behind our jukebox
+canonical_url: http://kyan.com/blog/2012/1/5/behind-our-jukebox
+---
+
+<p>If you take on Kyan as a client you’ll soon be aware that we love our music in the office.</p>
+<p>We used to use a 3rd party music player, but decided a few years ago to build our own; this gives you a lot more flexibility in exactly how it works.</p>
+<p><img src="http://web.archive.org/web/20160402022522im_/http://farm8.staticflickr.com/7008/6641709757_f33dfb59fc_o.png" alt="The interface to our jukebox, showing the controls, status and playlist."></p>
+
+{{ excerpt_separator }}
+
+<h2>The basics</h2>
+<p>At the most basic, the jukebox is comprised of everyone’s music shared in from their machines, a command line player called <a href="http://mpd.wikia.com/wiki/Music_Player_Daemon_Wiki">MPD</a> hooked up to an amp and speakers, and a <a href="/web/20160402022522/http://kyan.com/uk_based_ruby_on_rails_development">Rails</a> app that controls music selection. On top of that we’ve added a bunch of extras: last.fm scrobbling for <a href="http://www.last.fm/user/kyanmedia">our account</a>, stats on everything, voting on tracks and lots more.</p>
+<h2>Where it gets interesting</h2>
+<p>Fairly soon after building our initial implementation we ran into scaling problems. Think about it: a jukebox doesn’t just display what track is currently playing, but also the state of the entire interface including the volume and (problematically) the current state of play of the track. It’s this last one that caused us issues as each client was polling the jukebox every second to update its interface. That meant that an average of twenty-five clients were putting 90,000 hits an hour onto the little Dell the system was running on. We needed a better solution.</p>
+<p>Luckily, at about that time one presented itself: <a href="http://tools.ietf.org/html/rfc6455">WebSockets</a>. Simply put, this tech lets the server push out updates to the client rather than the client request them. On top of that, as the server knows its own state, it only needs to push out updates when that state changes. Finally, we changed the ‘current track time’ to increment automatically on the client and sync up only when another part of the system state changes.</p>
+<p>WebSockets haven’t been flawless: the spec has changed several times and they got removed from browsers entirely for a period due to <a href="http://www.webmonkey.com/2010/12/security-flaws-force-firefox-opera-to-turn-off-websockets/">a security hole in the spec</a>. When they work though they work exceptionally well. So let’s have a look at how they work in our system:</p>
+
+<pre><code>var conn, uri = "ws://jukebox:8080";
+if ("WebSocket" in window) {
+	conn = new WebSocket(uri);
+} else if ("MozWebSocket" in window) {
+	conn = new MozWebSocket(uri);
+}</code></pre>
+<p>Unfortunately WebSockets are still a prefixed interface in Firefox. This changes in Firefox 11 so we’ll remove the check at some point after that (the benefits of a limited audience!). This code simply tries to create a new WebSocket connection to the jukebox server. We then bind a listener to the socket:</p>
+
+<pre><code>conn.onmessage = function(msg){
+	var data = JSON.parse(msg.data);
+	for (var key in data) {
+		switch(key) {
+			case "state":
+				updatePlayPauseButton(data[key]);
+				break;
+			case "time":
+				updateCurrentTime(data[key]);
+				break;
+			case "rating":
+				updateRating(data[key]);
+				break;
+			case "track_added":
+				addStatusUpdate(data[key]);
+				break;
+			case "raters":
+				setVotedState(data[key]);
+				break;
+			case "track": // The track has changed
+				updateCurrentSong(data[key]);
+				break;
+			case "playlist": // Track added or removed
+				updatePlaylist(data[key]);
+				break;
+			case "volume":
+				volume.slider({value: data[key]});
+				break;
+			case "refresh":
+				window.location.reload(true); // force the browser to reload the page from the server (not from cache)
+				break;
+			default: console.error('Unrecognised action: '+key);
+		}
+	}
+}</code></pre>
+<p>Every time we intercept a JSON message from the server we parse it into an object, then look over it for data to apply to our interface. Not every update contains every key but that’s not a problem: we just update with the data we get from the server.</p>
+<p>From the server’s point of view there are two parts to the puzzle. For the first (the actual WebSocket server) we used the <a href="https://github.com/igrigorik/em-websocket">em-websocket</a> gem which leverages <a href="http://rubyeventmachine.com/">eventmachine</a> for an asynchronous socket server. Behind that we built a status dispatcher that monitors the system for state changes, bundles them up every second, builds a JSON object out of them, and passes them over to the WebSocket server to be distributed.</p>
+<p>This is remarkably elegant in practise and makes for a very responsive application interface, whilst massively reducing overall load! Of course, there’s a downside: no WebSockets in IE (until 10) or Opera (yet). It’s only a matter of time until support lands though.</p>
+<h2>The real benefits</h2>
+<p>Due to the predominance of up-to-date browsers in the office, we can use internal systems as a testbed for new technologies before we get a chance to implement them on client projects. The jukebox has turned out to be a fantastic system to try out new stuff on. WebSockets is only the start of it: the system was HTML5 before anything else we did and has given us valuable insights into CSS3 specifications such as <a href="http://www.w3.org/TR/css3-fonts/">webfonts</a> and <a href="http://www.w3.org/TR/css3-images/">gradients</a>.</p>
+<p>Every front-end developer needs some way to play around with upcoming specifications and having a project that is used by multiple people every day is a great way to push yourself and hone your skills.</p>

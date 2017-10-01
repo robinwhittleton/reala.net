@@ -1,0 +1,27 @@
+---
+layout: post
+source: kyan
+title: Kyan.com colophon
+canonical_url: http://kyan.com/blog/2011/11/11/kyan-com-colophon
+---
+
+<p>Now that our new site is live, I can finally talk about development decisions we made.</p>
+<p>The site last had a makeover in mid-2008 so what we can do has moved on quite considerably, and we’ve tried to take advantage of that where possible.</p>
+
+{{ excerpt_separator }}
+
+<h2>kyan.com</h2>
+<p>Those with eagle-eyes might notice a little change of domain. Yep, we finally managed to persuade the previous owner of kyan.com to give it a new lease of life. Officially we’re still Kyanmedia Ltd. (and kyanmedia.com will redirect to the new site), but it’s always nice to have a domain that’s shorter and more in keeping with how we talk about the company.</p>
+<h2>Web fonts</h2>
+<p>When we built the previous version of this site embedded fonts still had a long way to come, <a href="http://cufon.shoqolate.com/">Cufón</a> didn’t exist and <a href="http://en.wikipedia.org/wiki/Scalable_Inman_Flash_Replacement">sIFR</a> was the best way to get custom fonts onto your site. How times have changed!</p>
+<p>On the new site we’ve taken full advantage of web fonts. The main body copy is set in <a href="http://webfonts.fonts.com/en-US/Project/ChooseFonts?ViewDetails=T&amp;ViewFontID=723550">Sabon Next</a> and the headers are <a href="http://webfonts.fonts.com/en-US/Project/ChooseFonts?ViewDetails=T&amp;ViewFontID=721244">Avenir</a> (both provided by <a href="http://webfonts.fonts.com/">fonts.com</a>). <del>We also use the lovely <a href="http://www.theleagueofmoveabletype.com/fonts/7-league-gothic">League Gothic</a> for a few extra highlights; this is freely available for download so we host it ourself.</del> <ins>League Gothic is now replaced by its ancestor <a href="http://webfonts.fonts.com/en-US/Project/ChooseFonts?ViewDetails=T&amp;ViewFontID=691796">Alternate Gothic #1</a>, also served from <a href="http://http://webfonts.fonts.com">fonts.com</a>.</ins></p>
+<p><code>text-shadow</code> now has cross browser support (if you ignore IE) so we employed it on the main site headings. A neat little trick is to layer a lighter shadow over the top of a darker one: this really makes the heading stand out.</p>
+<h2>Animation</h2>
+<p>Displaying content in sliding panels is a well-established interface concept now, so we decided to add some extra touches to it. The <a href="/web/20160308065611/http://kyan.com/#gallery">homepage lead</a> adds an <a href="https://github.com/KuraFire/runloop/">animation timeline</a> to the slide effect to let us trigger the pull up / drop in animation of the various components. To keep these animations running smoothly we turned to <a href="http://www.w3.org/TR/css3-2d-transforms/"><abbr>CSS</abbr> Transforms</a> to help us out. These have the benefit of being hardware accelerated on iOS so iPad users get the same smooth transitions as desktop users. We also employed <abbr>CSS</abbr> Transforms on the <a href="/web/20160308065611/http://kyan.com/about_us#the_team">team photos</a> to scale them efficiently.</p>
+<p>A little extra touch is the starburst hover effect on the Kyan logo. This is drawn and then animated using with Canvas, which allows us to stack the logo on top easily. Previously this sort of effect would have been restricted to Flash so we probably wouldn’t have added it, but even this fairly light-weight approach in canvas is something we’ll be looking to add to client sites going forwards. It’s worth pointing out that <abbr>CSS</abbr> Transforms or <abbr>SVG</abbr> could also have done this effect fairly easily; we chose Canvas because it has the widest browser support of those three currently.</p>
+<h2>Heroku</h2>
+<p>Rather than hosting this site on our own hardware (as we’ve done previously) we’ve migrated to <a href="http://www.heroku.com/">Heroku</a>. We’ve been using Heroku for clients for a while now and have been extremely impressed with their ease of use and easy of deployment, so it was the natural choice when decided to rework our site. Heroku (as a cloud-based hosting company) gives us the ability to easily scale the site to any load we’re likely to see and is a natural fit for the Ruby on Rails stack we develop with.</p>
+<h2>Dropping IE6</h2>
+<p>One big decision for this site was to drop support for IE6. Although there’s still a measurable chunk of users on it, it didn’t seem possible to achieve our design with any sort of visual fidelity. The biggest problem actually turned out to be our scrolling galleries which rely on being able to define a <code>position:absolute</code> along with <code>left:0</code> and <code>right:0</code>. IE7 added this but IE6 is out in the cold. Still, for a 10 year old browser it’s had a good innings and we wish it well in its senility (you can see <a href="/web/20160308065611/http://kyan.com/ie6">our wishes in illustration form</a>).</p>
+<p>In addition to dropping IE6 we made the decision to turn off some visual enhancements in IE7 and IE8. We want the best experience for all users, and sometimes that means speeding up the site by turning off niceties. Our galleries are somewhat more simple in IE7 and IE8 but still look good and work well.</p>
+<p>Conversely, IE9 deals extremely well with our site and is pretty much the smoothest for the animation. That’s the power of hardware acceleration – something that other browsers are implementing quickly too. Now, if Microsoft could just add <code>text-shadow</code> support too…</p>

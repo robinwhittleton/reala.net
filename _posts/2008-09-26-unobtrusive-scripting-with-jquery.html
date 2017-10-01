@@ -1,0 +1,51 @@
+---
+layout: post
+source: kyan
+title: Unobtrusive scripting with jQuery
+canonical_url: http://kyan.com/blog/2008/9/26/unobtrusive-scripting-with-jquery
+---
+
+<p>Here at Kyan we love unobtrusive scripting: scripting that adds on to the top of an existing web page and extends it to add functionality and interaction niceness.</p>
+
+{{ excerpt_separator }}
+
+<p>We often use a Javascript library called <a href="http://www.jquery.com/">jQuery</a> to help us add scripting to our sites, and it’s got a nice extension mechanism. Let’s have a look at writing a small jQuery plugin to add a simple piece of functionality to our site: a print link after a news story.</p>
+<p>A print link only works when Javascript is turned on, so for users without scripting they get a dead link. This isn’t a particularly nice experience, but we can do better. Let’s assume that the markup we want is:</p>
+
+<pre><code>&lt;button&gt;Print this page&lt;/button&gt;</code></pre>
+<p>We can easily add this to the bottom of our news story (<code>&lt;div id="news_story"&gt;…&lt;/div&gt;</code>) using jQuery:</p>
+
+<pre><code>function addPrintButton() {
+	$('&lt;button&gt;Print this page&lt;/button&gt;').appendTo('#news_story');
+}</code></pre>
+<p>This is fairly simple to understand: nearly all statements in jQuery are a selection or creation (in this case our button) followed by one of more actions (in this case appending it to the element with an id of news_story). We also need to add the print functionality, but this can simply be chained into the same statement:</p>
+
+<pre><code>function addPrintButton() {
+	$('&lt;button&gt;Print this page&lt;/button&gt;')
+		.click(function(){window.print();})
+		.appendTo('#news_story');
+}</code></pre>
+<p>How do we call this? jQuery provides a simple mechanism for calling functions on page load with the <code>$(function(){})</code> syntax:</p>
+
+<pre><code>$(function(){
+	addPrintButton();
+});
+function addPrintButton() {
+	$('&lt;button&gt;Print this page&lt;/button&gt;')
+		.click(function(){window.print();})
+		.appendTo('#news_story');
+}</code></pre>
+<p>Bingo! A print button on every news story. But there’s one remaining trick we can use to make this more flexible. As I said earlier, a typical jQuery statement starts with a selector. Wouldn’t it be good if we could add a print button to any required element on the page? Luckily jQuery provides just such a mechanism. If we extend jQuery itself with our function then we can use it in the same way as the library functions:</p>
+
+<pre><code>$(function(){
+	$('#news_story').addPrintButton();
+});
+jQuery.fn.addPrintButton = function() {
+	return this.each(function(){
+		$('&lt;button&gt;Print this page&lt;/button&gt;')
+			.click(function(){window.print();})
+			.appendTo(this);
+	});
+}</code></pre>
+<p>jQuery.fn is the collection of functions that jQuery knows how to address. We simply add our new function to that collection, and make sure that we pass the selection out of our code so that we can chain more functions onto the end if needed.</p>
+<p>So there you go: a simple jQuery plugin in 5 minutes.</p>

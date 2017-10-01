@@ -1,0 +1,15 @@
+---
+layout: post
+source: kyan
+title: jQuery’s conquest of the web
+canonical_url: http://kyan.com/blog/2010/4/7/jquery-s-conquest-of-the-web
+---
+
+<p>We love Ruby on Rails at Kyan: it removes a lot of the complexity in setting up a web app leaving us free to build the stuff that actually matters. Take a front end development perspective though and things start to look a little … messy. Rails’ inbuilt helpers let you get client-side interaction up and running quickly, but at the cost of blocks of fairly impenetrable code that rely on the <a href="http://prototypejs.org/">Prototype</a> Javascript framework. Even if you don’t use the helpers, Prototype is still part of the default Rails install.</p>
+
+{{ excerpt_separator }}
+
+<p>Around about the time we started concentrating more on hand-coded Javascript, we decided that coding in Prototype wasn’t for us and migrated over to <a href="http://jquery.com/">jQuery</a> instead. This is not to denigrate Prototype – it provided a very solid base for Rails with good browser compatibility – but jQuery has a much more compact syntax and a better plugin community. One way to migrate is just to remove the default Prototype links and include jQuery, but to keep the transition smooth we also used a project called <a href="http://github.com/aaronchi/jrails">jRails</a>: a Rails plugin that rewrites the inbuilt helpers to export the jQuery syntax.</p>
+<p>For a year or two this setup gave us the flexibility to happily hand-code our own front-end Javascript and take advantage of jQuery’s plugin ecosystem, at the expense of having to ignore various Rails plugins that expected Prototype to be available. More recently though we’ve seen signs that the rest of the Rails community might be following our move. Plugins started appearing with dual Prototype/jQuery helpers (the Textile editor we use for text entry for example). Now even entire Rails applications are dropping Prototype in favour of jQuery. We’re currently evaluating the <a href="http://spreecommerce.com/">Spree e-commerce platform</a> which has standardised on jQuery over Prototype.</p>
+<p>The news seems to have reached the core Rails developers: as of Rails 3 the framework is officially agnostic towards Javascript frameworks. The expected JS development methodology is <a href="http://guides.rails.info/3_0_release_notes.html#unobtrusive-javascript">now unobtrusive hooking</a>, which is far better in terms of code re-use and lower complexity. Outside of Rails jQuery’s prospects are looking even better. Microsoft are now <a href="http://stephenwalther.com/blog/archive/2010/03/16/microsoft-jquery-and-templating.aspx">directly contributing code to jQuery</a>, and ship it with Visual Studio. Some stats sites are even claiming a <a href="http://trends.builtwith.com/javascript/JQuery">near 30% usage rate among top-10,000 sites</a> which is pretty extraordinary.</p>
+<p>Overall, we’re very happy with the choice we made. Congratulations to the jQuery team, and here’s the the next couple of years of progress!</p>

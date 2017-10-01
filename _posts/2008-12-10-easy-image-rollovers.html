@@ -1,0 +1,51 @@
+---
+layout: post
+source: kyan
+title: Easy image rollovers
+canonical_url: http://kyan.com/blog/2008/12/10/easy-image-rollovers
+---
+
+<p>Recently themeforest.net ran a <a href="http://blog.themeforest.net/tutorials/jquery-for-absolute-beginners-day-8/">quick tutorial</a> on how to achieve an image slide effect similar to <a href="http://www.kyanmedia.com/">our homepage</a>. I thought I’d go into some more detail about the design decisions we made.</p>
+
+{{ excerpt_separator }}
+
+<p>Here’s the exact jQuery code used:</p>
+
+<pre><code>$('#body_home #our_work li').hover(function(){
+	$(this).find('img').animate({top:'139px'},{queue:false,duration:500});
+}, function(){
+	$(this).find('img').animate({top:'0px'},{queue:false,duration:500});
+});</code></pre>
+<p>There’s really not that much! First, we select all the <code>&lt;li&gt;</code> elements inside our ‘our_work’ block on the homepage. Each of these is a picture and a block of text wrapped in a link. By using an id to define the block we let jQuery find it very quickly: the browser maintains a list of all elements with an id attribute that jQuery can hook directly into.</p>
+<p>Once we’ve got our blocks we can apply hover functionality to them. The first method passed into the hover handler is our slide down animation and the second is our slide up. We find the <code>&lt;img&gt;</code> element inside each block and animate it away from the top. In our case we’ve chosen half a second (500ms) for a complete slide down and up, and by passing in queue:false we make sure the slide up cancels the slide down if the user mouses out of the block while it’s animating. I’ve chosen to animate the image down by 139px because that’s the exact height of the image: just enough to take it off screen.</p>
+<p>From a <abbr>CSS</abbr> point of view it’s still kept pretty simple:</p>
+
+<pre><code>#our_work li{
+	float:left;
+	margin:0 30px 95px 0;
+	padding: 5px 7px 8px 5px;
+	width:258px;
+}
+
+#our_work li a {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	height: 107px;
+	width: 226px;
+	padding: 16px;
+}
+
+#our_work li a:focus, #our_work li a:hover { text-decoration: none; }
+
+#our_work li img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 139px;
+	width: 258px;
+}</code></pre>
+<p>The <code>&lt;li&gt;</code>s are floated left to make them line up and given some margin and padding, and a set width. Inside each <code>&lt;li&gt;</code> we have an <code>&lt;a&gt;</code> element which wraps around the <code>&lt;img&gt;</code> and associated text. We give this display:block and a fixed height and width so that it acts as complete clickable area. Because the <code>&lt;img&gt;</code> is inside this it’s also clickable. By making the <code>&lt;a&gt;</code> position relative it acts as a positioning parent for the <code>&lt;img&gt;</code>: when we set the <code>&lt;img&gt;</code> to position absolute it’ll reference its co-ordinates from the top left of the <code>&lt;a&gt;</code>. Finally, the overflow:hidden hides the <code>&lt;img&gt;</code> when it slides outside the <code>&lt;a&gt;</code>. Simple!</p>
+<p>Final touches we’ve added are to style the text with a nice font and size and add a little background folded-corner image, but this is obviously easily customisable for whatever style you want.</p>
+<p>One thing that’s very important to take care of whenever you’re writing Javascript is to cope when JS isn’t available. For our blocks we decided to just show the images. Because they are still inside the link they can be clicked, so the user can go through to the info page for that project. Screenreader users should also be read the description text from behind the image as we’re not hiding it.</p>
+<p>Drop me a comment if you’re interested in hearing about other jQuery effects we’ve done on this site and others from our portfolio and I’ll write some more about it.</p>

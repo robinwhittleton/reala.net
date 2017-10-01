@@ -1,0 +1,32 @@
+---
+layout: post
+source: kyan
+title: Currency conversion in JS
+canonical_url: http://kyan.com/blog/2009/3/20/converting-currency-to-numbers-and
+---
+
+<p>I recently had to make a couple of JavaScript currency conversion functions for a current project, so I thought I’d put them up here.</p>
+
+{{ excerpt_separator }}
+
+<p>The project had a requirement for all currency values to be formatted as £xx,xxx.xx (commas to separate thousand blocks, and two digits of precision). The functions we came up with are:</p>
+
+<pre><code>function currency2number(currency) {
+	return parseFloat(currency.slice(1).replace(/,/,''),10);
+}
+function number2currency(number) {
+	number = Number(number).toFixed(2).split('.');
+	number[0] = number[0].split("").reverse().join("");
+	number[0] = number[0].match(/\d{1,3}/g).join(",");
+	number[0] = number[0].split("").reverse().join("");
+	return '£'+number[0] + '.' + number[1];
+}</code></pre>
+<p><code>currency2number</code> is simple enough – it removes the ‘£’ symbol and commas, and converts it from a string to a float. The only gotcha is passing in 10 as the radix; this prevents leading zeros causing the number to be parsed as octal, an old but recurrent JavaScript problem.</p>
+<p><code>number2currency</code> caused me a few more problems, the main one being that adding the comma separators has to start from the decimal point and work backwards. Let’s work through our solution:</p>
+<ol>
+	<li>First, take the number, wrap with with a Number object and use the toFixed method to get the correct number of decimal places</li>
+	<li>Next, split that number on the decimal place so we can work on the left hand side</li>
+	<li>Add the commas. Because we need to start from the right and work backwards it’s easier just to reverse the string and work from the left. Unfortunately Javascript lacks a String.reverse function. Best we can do is Array.reverse, so: split the string into an array, reverse it, rejoin it, find blocks of three numbers and join them with commas, split into an array again, reverse back to normal and rejoin. Phew!</li>
+	<li>Finally, simply tack on a £ symbol and join everything together</li>
+</ol>
+<p>So there you go, hope this helps someone. If anyone’s got any better ways of doing this then definitely let us know.</p>
