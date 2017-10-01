@@ -8,3 +8,6 @@ twitter_username: robinwhittleton
 github_username:  robinwhittleton
 permalink: pretty
 date_format: "%-d %B %Y"
+
+plugins:
+  - jekyll-feed
