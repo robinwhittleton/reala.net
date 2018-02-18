@@ -1,0 +1,152 @@
+---
+layout: post
+title: Dropping G Suite
+---
+
+<p>Google recently announced that they were <a href="https://www.blog.google/products/g-suite/bringing-power-amp-gmail/">extending AMP to email</a>, and for me that was the straw that broke the camel’s back. I’ve been gradually reducing the amount of Google services I use over the past few years: <a href="https://duckduckgo.com/">DuckDuckGo</a> has mostly replaced Google Search, <a href="https://archive.org/">archive.org</a> and <a href="https://babel.hathitrust.org/cgi/mb">Hathi</a> have mostly replaced <a href="https://books.google.com/">books.google.com</a>, and for better or worse I use iOS instead of Android. I still use YouTube and that doesn’t have an obvious competitor, but I can at least choose to move away from my paid <a href="https://gsuite.google.com/">G Suite</a> account as there are plenty of alternatives.</p>
+
+<p>First, what do I want from a replacement service? The main thing is obviously email. I’m happy with iCloud calenders, and I don’t often use Google office products or Drive much any more. My list of needs and nice-to-haves came to:</p>
+
+<ul>
+	<li>Two-factor authentication with <a href="https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm"><abbr>TOTP</abbr></a> (a must)</li>
+	<li>Secure <abbr>IMAP</abbr> interface (also a must)</li>
+	<li>Reasonable webmail interface with no advertising (nice to have)</li>
+	<li>Multiple catch-all domains (at least two if not more)</li>
+	<li>At least 3 <abbr>Gb</abbr> storage</li>
+	<li>Hosted in the <abbr>EU</abbr> and <a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation"><abbr>GDPR</abbr></a> compliant with a reasonable privacy policy (ideally with a <a href="https://en.wikipedia.org/wiki/Warrant_canary">warrant canary</a>, stated goals etc.)</li>
+	<li>Servers powered by renewable energy (nice-to-have)</li>
+	<li>Reasonable price (I want to pay for this: I want to be buying a supported product)</li>
+</ul>
+
+<p>There are a bunch of companies potentially selling this service, so after an hour or so I was able to put together this table. Where companies have multiple products I’ve picked the cheapest that fulfils as many of the criteria as possible.</p>
+
+<table>
+	<caption>Comparison of mail providers</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Two-factor authentication</th>
+			<th>IMAP access</th>
+			<th>Webmail access</th>
+			<th>Multiple domains</th>
+			<th>EU hosting</th>
+			<th>Renewable power</th>
+			<th>3Gb storage minimum</th>
+			<th>Price per year</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td scope="row"><a href="https://www.fastmail.com/">Fastmail</a></td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-no">✗ (US)</td>
+			<td class="answer-maybe answer-complete">?</td>
+			<td>25Gb</td>
+			<td class="number">400 SEK</td>
+		</tr>
+		<tr>
+			<td scope="row"><a href="https://products.office.com/en-GB/compare-all-microsoft-office-products?tab=2">Office 365 Business</a></td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-maybe">Sort of</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-maybe">Maybe, it looks like they can move you around</td>
+			<td class="answer-maybe answer-complete">?</td>
+			<td>50Gb</td>
+			<td class="number">1,264 SEK</td>
+		</tr>
+		<tr>
+			<td scope="row"><a href="https://www.icloud.com/">Apple iCloud Mail</a></td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-no answer-complete">✗</td>
+			<td class="answer-maybe answer-complete">?</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td>5Gb</td>
+			<td class="number">Free</td>
+		</tr>
+		<tr>
+			<td scope="row"><a href="https://soverin.net/">Soverin</a></td>
+			<td class="answer-no answer-complete">✗</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td>25Gb</td>
+			<td class="number">384 SEK</td>
+		</tr>
+		<tr>
+			<td scope="row"><a href="https://runbox.com/">Runbox</a></td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes">✗, but Norway is good enough</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td>5Gb</td>
+			<td class="number">294 SEK</td>
+		</tr>
+		<tr>
+			<td scope="row"><a href="https://protonmail.com/">Protonmail</a></td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-no answer-complete">✗</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes">✗, but Switzerland is good enough</td>
+			<td class="answer-maybe answer-complete">?</td>
+			<td>5Gb</td>
+			<td class="number">600 SEK</td>
+		</tr>
+		<tr>
+			<td scope="row"><a href="https://posteo.de/en">Posteo</a></td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-no answer-complete">✗</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td>3Gb</td>
+			<td class="number">148 SEK</td>
+		</tr>
+		<tr>
+			<td scope="row"><a href="https://tutanota.com/">Tutanota</a></td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-no answer-complete">✗</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td>10Gb</td>
+			<td class="number">236 SEK</td>
+		</tr>
+		<tr>
+			<td scope="row"><a href="https://mailbox.org/">Mailbox.org</a></td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-maybe">Certainly 1, maybe more?</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td>5Gb</td>
+			<td class="number">354 SEK</td>
+		</tr>
+		<tr>
+			<td scope="row"><a href="https://www.migadu.com/en/index.html">Migadu</a></td>
+			<td class="answer-no answer-complete">✗</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes answer-complete">✓</td>
+			<td class="answer-yes">✗, but Switzerland is good enough</td>
+			<td class="answer-maybe answer-complete">?</td>
+			<td>Unlimited</td>
+			<td class="number">384 SEK</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>So who am I going to go with? I haven’t actually made the move yet, but Runbox is looking interesting as they tick all the boxes. The default suggestion is usually Fastmail but I’d rather have some EU presence and unfortunately they’re an Australian company with servers located in the US. Posteo look good but the lack of multiple domains is problematic. I probably would have been more interested in Soverin and Migadu, but an email account without two-factor authentication in 2018 is unforgivable; putting that aside they look like good services and I hope they add it soon.</p>
