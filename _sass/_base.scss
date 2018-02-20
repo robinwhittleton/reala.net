@@ -21,7 +21,7 @@ dl { @include clearfix; }
 dt { font-size: .8em; text-transform: uppercase; letter-spacing: .05em; float: left; clear: both; margin: .358em 0 0; padding: 0; }
 dd { float: right; margin: 0; padding: 0; }
 
-table { border-collapse: collapse; font-size: 0.7em; margin: 2em 0; }
+table { border-collapse: collapse; font-size: 0.7em; margin: 2em 0; width: 100%; }
 caption { padding-bottom: 1em; }
 th { padding: 0 .25em .25em 0; text-align: left; vertical-align: top; }
 td { padding: .25em; vertical-align: top; border-top: 1px solid $light-grey; }
