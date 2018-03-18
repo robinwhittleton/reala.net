@@ -6,7 +6,7 @@ canonical_url: http://kyan.com/blog/2012/1/20/sticking-your-tongue-out
 ---
 
 <p>Designers seem to love these:</p>
-<p><img src="http://web.archive.org/web/20160402020043im_/http://farm8.staticflickr.com/7013/6731564415_8d77171ab4_z.jpg" alt=""></p>
+<figure><img src="/assets/images/posts/2012-01-20-tongue-1.jpg" alt="An image of a box with a triangle resembling a speech bubble indicator sticking out from the bottom left."></figure>
 
 {{ excerpt_separator }}
 
@@ -59,7 +59,7 @@ div::after {
   left: 10px;
 }</code></pre>
 <p>Easy enough? First, we set the width and height of our generated content to 0. We’re going to build the tongue out of borders so we don’t need any size to the box itself. Next, let’s think back to our image box. It was 20 pixels wide and 10 high. To get this, let’s have a border that’s 0 pixels high on the top, 10 on the right, 10 on the bottom and 10 on the left. Finally, we set out border colour. The top is 0 pixels high so we could put anything we want there, but let’s leave it as transparent for clarity. On the left and right we want to be able to see down to the content so we need those to be transparent too. Finally, we make our bottom triangle of border the colour we want: green.</p>
-<p><img src="http://web.archive.org/web/20160402020043im_/http://farm8.staticflickr.com/7160/6731564561_3aae2e1752_z.jpg" alt=""></p>
+<figure><img src="/assets/images/posts/2012-01-20-tongue-2.jpg" alt="An image of a box with a triangle resembling a speech bubble indicator sticking up from the top."></figure>
 <p>Now that we’ve got our tongue as a separate pseudoelement we can do all sorts of cool things with it. How about changing the color of the box and the tongue at the same time on hover?</p>
 
 <pre><code>div:hover {
