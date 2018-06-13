@@ -1,0 +1,24 @@
+.books {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: .5em;
+	grid-row-gap: 1em;
+	margin: 0 0 1em;
+	padding: 0;
+	text-align: center;
+	list-style: none;
+}
+
+.books > li {
+	width: 100%;
+}
+
+.books img {
+	display: block;
+	width: 100%;
+	margin: 0 0 .5em;
+}
+
+.books i {
+	display: block;
+}
