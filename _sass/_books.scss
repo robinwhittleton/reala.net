@@ -1,12 +1,24 @@
 .books {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: .5em;
+	grid-template-columns: 1fr;
 	grid-row-gap: 1em;
 	margin: 0 0 1em;
 	padding: 0;
 	text-align: center;
 	list-style: none;
+}
+
+@media all and (min-width: 400px) {
+	.books {
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: .5em;
+	}
+}
+
+@media all and (min-width: 680px) {
+	.books {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 }
 
 .books > li {
