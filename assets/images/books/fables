@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en-US">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# books: http://ogp.me/ns/books#">
+	<meta charset="utf-8">
+	<title>Fables, by Aesop. Translated by V. S. Vernon Jones | Standard Ebooks</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="/css/core.css" media="screen" rel="stylesheet" type="text/css">
+	<link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+	<link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+	<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+	<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+	<link href="/manifest.json" rel="manifest">
+	<link rel="alternate" type="application/rss+xml" title="Standard Ebooks - New Releases" href="https://standardebooks.org/rss/new-releases">
+	<link color="#394451" href="/safari-pinned-tab.svg" rel="mask-icon">
+	<meta content="#394451" name="theme-color">
+	<script type="application/ld+json">
+	{
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "bookFormat": "EBook",
+    "image": "https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones/dist/cover.jpg",
+    "thumbnailUrl": "https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones/dist/cover-thumbnail.jpg",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Standard Ebooks",
+        "logo": "https://standardebooks.org/images/logo-full.svg",
+        "url": "https://standardebooks.org"
+    },
+    "url": "https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones",
+    "@id": "https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones",
+    "description": "Aesop\u2019s classic Fables of behaviour and consequence.",
+    "inLanguage": "en-GB",
+    "sameAs": "https://en.wikipedia.org/wiki/Aesop%27s_Fables",
+    "encoding": [
+        {
+            "@type": "MediaObject",
+            "encodingFormat": "epub",
+            "contentUrl": "https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones/dist/aesop_fables.epub"
+        },
+        {
+            "@type": "MediaObject",
+            "encodingFormat": "kepub",
+            "contentUrl": "https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones/dist/aesop_fables.kepub.epub"
+        },
+        {
+            "@type": "MediaObject",
+            "encodingFormat": "epub3",
+            "contentUrl": "https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones/dist/aesop_fables.epub3"
+        },
+        {
+            "@type": "MediaObject",
+            "encodingFormat": "azw3",
+            "contentUrl": "https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones/dist/aesop_fables.azw3"
+        }
+    ],
+    "translator": [
+        {
+            "@type": "Person",
+            "name": "V. S. Vernon Jones"
+        }
+    ],
+    "name": "Fables",
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Aesop",
+            "sameAs": "https://en.wikipedia.org/wiki/Aesop"
+        }
+    ]
+}
+	</script>
+	<meta property="og:type" content="books.book">
+	<meta property="og:title" content="Fables">
+	<meta property="og:isbn" content="url:https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones">	<meta property="og:url" content="https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones">
+	<meta property="og:description" content="Aesop’s classic Fables of behaviour and consequence.">
+	<meta property="og:image" content="https://standardebooks.org/ebooks/aesop/fables/v-s-vernon-jones/dist/cover.jpg">
+	<meta property="og:image:width" content="1400">	<meta property="og:image:height" content="2100">	<meta property="books:language:locale" content="en_GB">
+						<meta property="books:author" content="https://en.wikipedia.org/wiki/Aesop">
+				<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@standardebooks">
+	<meta name="twitter:creator" content="@standardebooks">
+</head>
+<body>
+	<header>
+		<a href="/">Standard Ebooks</a>
+		<nav>
+			<ul>
+				<li>
+					<a class="highlighted" href="/ebooks/">Ebooks</a>
+				</li>
+				<li>
+					<a href="/about/">About</a>
+				</li>
+				<li>
+					<a href="/contribute/">Get Involved</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<article class="ebook">
+			<header>
+				<div>
+					<h1>Fables</h1>
+										<p>Aesop</p>
+									</div>
+				<img src="/images/covers/6cf960c52b347cf00b9c960aa80da64f5db41254-23cb6fcda3d520f1cabc081f6a724cf214cad9b3-hero@2x.jpg" alt="The cover for the Standard Ebooks edition of Fables" />
+			</header>
+
+			<aside id="reading-ease">
+				<p>39,974 words (2 hours 26 minutes) with a reading ease of 71.89 (fairly easy)</p>
+								<p>Translated by V. S. Vernon Jones.</p>
+							</aside>
+
+			<section id="description">
+				<h2>Description</h2>
+									
+			<p>Whether it’s the benefits of taking it slow and steady (“The Tortoise and the Hare”), the necessity of invention (“The Crow and the Pitcher”), or the problems of cognitive dissonance (“The Fox and the Grapes”), Aesop has a fable for every occasion. Aesop lived in Greece in the 6th century BCE, far enough in the past that it’s become impossible to ascribe all these fables to him. Some were certainly retellings of older myths, some share their roots in collections of fables from India and further afield, and many were added well after his time. However, they all share a certain quality of prose that marks them out as belonging to the collection regardless of authorship. It’s that quality, combined with their insight into the human character, that has meant that they’ve stood the test of time for twenty-five centuries.</p>
+			<p>This collection is the 1912 translation by V. S. Vernon Jones, and is comprised of two hundred and eighty-four of the fables.</p>
+									</section>
+
+						<section id="download">
+				<h2>Free download</h2>
+				<div class="us-pd-warning">
+					<p>This ebook is only thought to be free of copyright restrictions in the United States. It may still be under copyright in other countries. If you’re not located in the United States, you must check your local laws to verify that the contents of this ebook are free of copyright restrictions in the country you’re located in before downloading or using this ebook.</p>
+				</div>
+				<ul>
+										<li><p><span><a href="/ebooks/aesop/fables/v-s-vernon-jones/dist/aesop_fables.epub" class="epub">epub</a> </span><span>—</span> <span>All devices and apps except Amazon Kindle and Kobo.</span></p>
+					</li>
+					
+										<li><p><span><a href="/ebooks/aesop/fables/v-s-vernon-jones/dist/aesop_fables.azw3" class="amazon">azw3</a></span> <span>—</span> <span>Amazon Kindle devices and apps. Also download the <a href="/ebooks/aesop/fables/v-s-vernon-jones/dist/thumbnail_228aa8bd76da4ebf3be2714eb4e4598c43affb1d_EBOK_portrait.jpg">Kindle cover thumbnail</a> to see the cover in your Kindle’s library.</span></p>
+					</li>
+					
+										<li><p><span><a href="/ebooks/aesop/fables/v-s-vernon-jones/dist/aesop_fables.kepub.epub" class="kobo">kepub</a> </span><span>—</span> <span>Kobo devices and apps.</span></p>
+					</li>
+					
+										<li><p><span><a href="/ebooks/aesop/fables/v-s-vernon-jones/dist/aesop_fables.epub3" class="epub">epub3</a></span> <span>—</span> <span>Advanced format not yet fully compatible with most ereaders.</span></p>
+					</li>
+														</ul>
+				<aside>
+					<p>Read about <a href="/help/how-to-use-our-ebooks#which-file-to-download">which file to download</a> and <a href="/help/how-to-use-our-ebooks#transferring-to-your-ereader">how to transfer them to your ereader</a>.</p>
+				</aside>
+			</section>
+			
+			<section id="history">
+				<h2>A brief history of this ebook</h2>
+				<ol>
+										<li>
+						<time datetime="2018-07-22 20:26:11">2018-07-22</time>
+						<p>Finish metadata and initial publication</p>
+					</li>
+										<li>
+						<time datetime="2018-07-22 20:25:59">2018-07-22</time>
+						<p>Tweak title</p>
+					</li>
+										<li>
+						<time datetime="2018-07-22 20:25:08">2018-07-22</time>
+						<p>Build images</p>
+					</li>
+										<li>
+						<time datetime="2018-07-22 20:24:33">2018-07-22</time>
+						<p>Tweak semantics</p>
+					</li>
+										<li>
+						<time datetime="2018-07-22 20:24:10">2018-07-22</time>
+						<p>Change footer style to be more like bridgeheads</p>
+					</li>
+									</ol>
+								<aside>
+					<p>Read the <a href="https://github.com/standardebooks/aesop_fables_v-s-vernon-jones/commits/master">full change history</a>.</p>
+				</aside>
+							</section>
+
+			<section id="details">
+				<h2>More details</h2>
+				<ul>
+										<li>
+						<p><a href="https://github.com/standardebooks/aesop_fables_v-s-vernon-jones" class="github">This ebook’s source code at GitHub</a></p>
+						</li>
+															<li>
+						<p><a href="https://en.wikipedia.org/wiki/Aesop%27s_Fables" class="wikipedia">This book at Wikipedia</a></p>
+					</li>
+															<li>
+						<p><a href="https://www.gutenberg.org/ebooks/11339" class="project-gutenberg">Transcription at Project Gutenberg</a></p>
+					</li>
+																				<li>
+						<p><a href="https://archive.org/details/aesopfables00aesoiala" class="internet-archive">Page scans at the Internet Archive</a></p>
+					</li>
+																								</ul>
+			</section>
+			<section id="improve">
+				<h2>Improve this ebook</h2>
+				<p>Anyone can contribute to make a Standard Ebook better for everyone!</p>
+				<p>To report typos, typography errors, or other corrections, see <a href="/contribute/report-errors">how to report errors</a>.</p>
+				<p>If you’re comfortable with technology and want to contribute directly, check out <a href="https://github.com/standardebooks/aesop_fables_v-s-vernon-jones">this ebook’s GitHub repository</a> and our <a href="/contribute/">contributors section</a>.</p>			</section>
+
+			<aside id="more-ebooks">
+				<h2>More free ebooks</h2>
+				<ul>
+										<li><a href="/ebooks/august-strindberg/the-inferno/claud-field"><img src="/images/covers/4d8ce7d8e81a3199fa7146a003874d2e140ea20e-6a2fa929a2f3ed55feecd6f2dfcd0bced6cc5ebd-thumbnail@2x.jpg" srcset="/images/covers/4d8ce7d8e81a3199fa7146a003874d2e140ea20e-6a2fa929a2f3ed55feecd6f2dfcd0bced6cc5ebd-thumbnail@2x.jpg 2x, /images/covers/4d8ce7d8e81a3199fa7146a003874d2e140ea20e-6a2fa929a2f3ed55feecd6f2dfcd0bced6cc5ebd-thumbnail.jpg 1x" alt="The cover for the Standard Ebooks edition of The Inferno" title="The Inferno" /></a></li>
+										<li><a href="/ebooks/herman-melville/moby-dick"><img src="/images/covers/eb385e8646f67c006e7db2216e89d84de603a9c6-c7fc5088a7438b51410429ebd274fb0c7197f0ed-thumbnail@2x.jpg" srcset="/images/covers/eb385e8646f67c006e7db2216e89d84de603a9c6-c7fc5088a7438b51410429ebd274fb0c7197f0ed-thumbnail@2x.jpg 2x, /images/covers/eb385e8646f67c006e7db2216e89d84de603a9c6-c7fc5088a7438b51410429ebd274fb0c7197f0ed-thumbnail.jpg 1x" alt="The cover for the Standard Ebooks edition of Moby Dick" title="Moby Dick" /></a></li>
+										<li><a href="/ebooks/max-beerbohm/zuleika-dobson"><img src="/images/covers/f746aafa816ae4caeae118f1fb4788abf4a3d0a7-f4710b776cbc42a9380795fb489d0a7ac1945bbb-thumbnail@2x.jpg" srcset="/images/covers/f746aafa816ae4caeae118f1fb4788abf4a3d0a7-f4710b776cbc42a9380795fb489d0a7ac1945bbb-thumbnail@2x.jpg 2x, /images/covers/f746aafa816ae4caeae118f1fb4788abf4a3d0a7-f4710b776cbc42a9380795fb489d0a7ac1945bbb-thumbnail.jpg 1x" alt="The cover for the Standard Ebooks edition of Zuleika Dobson" title="Zuleika Dobson" /></a></li>
+										<li><a href="/ebooks/george-macdonald/phantastes"><img src="/images/covers/ec3f6c71061ac07e51d3f95b8912ef55f521e281-0775f4f254981b31b975a4acd14f90e96638e781-thumbnail@2x.jpg" srcset="/images/covers/ec3f6c71061ac07e51d3f95b8912ef55f521e281-0775f4f254981b31b975a4acd14f90e96638e781-thumbnail@2x.jpg 2x, /images/covers/ec3f6c71061ac07e51d3f95b8912ef55f521e281-0775f4f254981b31b975a4acd14f90e96638e781-thumbnail.jpg 1x" alt="The cover for the Standard Ebooks edition of Phantastes" title="Phantastes" /></a></li>
+										<li><a href="/ebooks/robert-w-chambers/the-king-in-yellow"><img src="/images/covers/a5453baee00946f10a97808c3220c49af5acfdf2-53102a52ceabdcbb07f7627b9871413c4928e941-thumbnail@2x.jpg" srcset="/images/covers/a5453baee00946f10a97808c3220c49af5acfdf2-53102a52ceabdcbb07f7627b9871413c4928e941-thumbnail@2x.jpg 2x, /images/covers/a5453baee00946f10a97808c3220c49af5acfdf2-53102a52ceabdcbb07f7627b9871413c4928e941-thumbnail.jpg 1x" alt="The cover for the Standard Ebooks edition of The King in Yellow" title="The King in Yellow" /></a></li>
+									</ul>
+			</aside>
+		</article>
+	</main>
+	<footer>
+		<ul>
+			<li>
+				<a href="/ebooks/">Ebooks</a>
+			</li>
+			<li>
+				<a href="/about/">About</a>
+			</li>
+			<li>
+				<a href="/contribute/">Get Involved</a>
+			</li>
+			<li>
+				<a href="https://github.com/standardebooks">Github</a>
+			</li>
+			<li>
+				<a href="/opds/">OPDS</a>
+			</li>
+			<li>
+					<a href="/rss/new-releases">New Releases RSS Feed</a>
+			</li>
+		</ul>
+		<p>Content produced by or for the Standard Ebooks project is dedicated to the <a href="https://en.wikipedia.org/wiki/Public_domain">public domain</a> via the <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal Public Domain Dedication</a>.</p>
+		<p>Content not produced by or for the Standard Ebooks project but displayed on this website may be subject to copyright.</p>
+		<p><a href="/">Standard Ebooks</a></p>
+	</footer>
+</body>
+</html>
