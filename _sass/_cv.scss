@@ -1,7 +1,9 @@
-.vcard { @include clearfix; }
-.vcard>h1 { float: left; white-space: nowrap; }
-.vcard>address { float: right; text-align: right; }
-.vcard>dl { float: right; clear: right; min-width: 15em; }
+@media (min-width: 640px) {
+	.vcard { display: flex; justify-content: space-between; }
+}
+.vcard h1 { white-space: nowrap; }
+.address-details { text-align: right; }
+.address-details dl { min-width: 17em; }
 
 .cv>section { margin: 0 0 3em; }
 
@@ -14,3 +16,9 @@
 // specific sections
 
 #personal-statement>p { font-size: 1.222em; line-height: 1.364; margin: 0 2.5em 1.5em; }
+
+@media print {
+	.notice {
+		display: none;
+	}
+}
