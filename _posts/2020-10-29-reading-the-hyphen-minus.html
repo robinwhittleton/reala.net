@@ -1,0 +1,16 @@
+---
+layout: post
+title: Reading the hyphen-minus
+---
+
+<p>Today’s screenreader <abbr>PSA</abbr>, discovered by a colleague, concerns prices.</p>
+
+<p>Generally speaking, shop prices aren’t negative, but there are some places where that display is needed, for example a discount applied in the checkout. When testing our design system Price component with this new functionality he discovered an interesting behaviour in VoiceOver.</p>
+
+<p>Typographically, the hyphen and the minus are different symbols, but in practice hyphens are used to denote negative numbers so much that the symbol in Unicode is called the <a href="https://en.wikipedia.org/wiki/Hyphen-minus">hyphen-minus</a>. In VoiceOver, a hyphen-minus directly before a number (-100) is read out exactly the same as a <a href="https://en.wikipedia.org/wiki/Plus_and_minus_signs#Minus_sign">minus sign</a> directly before a number (−100): ‘minus one hundred’. Adding a currency symbol into the string (-€100 / −€100) also leads to the same reading: ‘minus one hundred euros’.</p>
+
+<p>But prices like that look a little crushed up; adding some space between the minus and the currency sign (- €100 / − €100) looks a bit nicer, and here’s where the problems start. The minus sign is still read out as ‘minus one hundred euros’, but the hyphen-minus is now unexpectedly ‘<em>semicolon one hundred euros</em>’.</p>
+
+<p>Luckily there are easy fixes. Obviously, the best is to use the proper minus sign. But the problem can also be mitigated by using a <a href="https://en.wikipedia.org/wiki/Thin_space">thin space</a>, which has the added benefit of a more appealing visual width anyway (− €100).</p>
+
+<p>So the moral of the story: the combination of a hyphen-minus and a full-width space to denote negative prices has unexpected accessibility issues; use a proper minus sign and a thin space instead.</p>
