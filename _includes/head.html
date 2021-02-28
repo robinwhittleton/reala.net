@@ -2,6 +2,7 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'">
   <meta name="viewport" content="width=device-width initial-scale=1">
+  {% if page.name == 'cv.html' %}<meta name="robots" content="noindex"/>{% endif %}
 
   <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
