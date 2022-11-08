@@ -5,7 +5,7 @@ email: robin@reala.net
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://www.robinwhittleton.com" # the base hostname & protocol for your site
 twitter_username: robinwhittleton
-github_username:  robinwhittleton
+github_username: robinwhittleton
 permalink: pretty
 date_format: "%-d %B %Y"
 
