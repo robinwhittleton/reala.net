@@ -1,0 +1,57 @@
+---
+layout: post
+source: ikea
+title: Running a clean-up day
+canonical_url: https://medium.com/flat-pack-tech/running-a-clean-up-day-5ad458499942
+---
+
+<p>You know the drill. The product owner and designers have researched and decided on a load of great new features, and now it’s time to build and test them. Every backlog gives you more and more chances to test out what new ideas could work well for your users.</p>
+<p>But sometimes the pressure of getting this launched means that you don’t have time to do everything you’d like to the quality you’d like to do it to. Maybe bits of old experiments were left in the codebase by accident, or you weren’t able to get to the “make it fast” stage after making it work. Sometimes as engineers we need to stop, take stock of our codebase, and make those little fixes.</p>
+
+{{ excerpt_separator }}
+
+<p>At IKEA we’re learning how to do effective hackathons and problem swarming. The idea of a day to come together to clean up IKEA.com seemed like something that could have a positive impact, and teach us something in the process.</p>
+
+<figure><img src="/assets/images/posts/2023-06-30-intro.webp" alt=""/></figure>
+
+<h2>The goal for the day</h2>
+<p>While IKEA.com’s performance is great (we recently hit green for all <a href="https://web.dev/vitals/">Core Web Vitals</a> scores for our mobile users!) there’s always more we can do. <abbr>CWV</abbr> focuses on the perceived performance, but we know that we ship too much code. Part of that is down to our microfrontends architecture, but there’s always oversights and optimisations to work on.</p>
+<p>So the goal for the day: bring as many of our customer-facing teams together as possible to see how they could reduce the amount of code they ship. This isn’t a particularly complicated goal, and we left it up to each team to see what they could find.</p>
+
+<h2>Why does the amount of shipped code matter?</h2>
+<p>There’s a performance cost to shipped code of course. Browsers have to download a large amount of code for a modern website. Slightly shamefully, a full page load of a market homepage on IKEA.com is now (without compression) around 9MB, or, as <a href="https://www.wired.com/2016/04/average-webpage-now-size-original-doom/">Wired put it in 2016</a>, the size of four original copies of Doom. For a desktop computer on a fast connection, this is not particularly difficult. But for a low-end Android device on a slow 4G or even 3G connection this could take many seconds to download, parse and execute.</p>
+<p>There’s a direct cost to our users as well. In some markets with lots of competition between mobile providers we see high or even unlimited data caps. But in others, for example Canada, it’s still possible to have a connection with a very limited amount of data available over a month.</p>
+<p>We also see from our analytics that we have less Android users than iOS users, but looking at the overall stats for the markets we serve we should see the opposite. Is our performance for the long tail of Android devices turning away potential customers?</p>
+<p>Finally, there’s also a sustainability problem here: more code means more processing, which in turn means more power consumption. Removing code saves power for every part of the system, whether it’s server processing, network traffic, or code on our users’ devices.</p>
+
+<h2>How we ran it</h2>
+<p>Hackathons can be as complex or as simple as you like; for this one we kept it as simple as possible. We started the day with a quick introduction of the subject and why we were doing this. As different teams have different situations and problems we deliberately kept this open-ended. Some teams would probably delete some unused code, and some might plan out a new framework for lazy-loading their systems, but everything helps.</p>
+<p>After the introduction, we left the teams to focus on their own systems. We had a couple of hundred attendees, so while a few of them were in the same office as us, it was primarily a remote event. To keep the conversation going during the day we set up dedicated Slack and Teams channels.</p>
+<p>At the end of the day, we came back together for a demo session. Teams had the chance to present to everyone for two to three minutes what they’d found and fixed. We made sure to keep this deliberately blame free: it’s important that if people are going to present about problems with their systems that they feel safe to do so.</p>
+<p>Finally, we awarded a few prizes for the teams we thought had made a particularly valuable contribution. It doesn’t have to be much; we decided a gift card for the team to have lunch together is a nice way of saying thank you for the hard work.</p>
+
+<h2>The winners</h2>
+
+<p>Everyone that talked had something interesting to present, but prizes mean we had to pick our favourite contributions. The biggest runner-up for us was work to lazy-load our cookie consent code to just the people who still needed to choose. It’s a big saving, but as that was a few months worth of work that just happened to be merged on this day it felt a bit unfair to the other teams!</p>
+<p>From a performance point of view, our biggest win was the Navigation team who removed 34KB of JavaScript from every page load. This was partially from cleaning up a couple of old experiments that hadn’t been properly removed. The big improvement, though, comes from lazy-loading Google Maps code only when it’s needed.</p>
+<p>From a sustainability point of view, it was an easy decision: the Product Page team cleaned up a lot of code around energy labelling. They’d previously had three separate implementations, but were able to take the day to get it down to just one, and saved a bunch of download size from that one. If our users are interested in saving energy, it makes a lot of sense to reduce the download size for that particular section.</p>
+<p>As as overall win, we were impressed with the As-is team who demonstrated that it was possible to replace React with Preact in less than a day. This saved 38–40KB from their solution’s shipped code, and also demonstrated to other teams how easy it is to make that change.</p>
+
+<h2>The impact of shipping less code</h2>
+<p>If this was a single change then it’d be possible to run that as an A/B test to quantify the benefit of removing code. But with many teams involved, each working on their own part of the system, this would be a hard ask. Luckily, we have other sources for performance analytics, and we can see results from that.</p>
+<p>We let the site run for a week to make sure we got a full weekly ecommerce cycle, then looked at the metrics in <a href="https://www.akamai.com/products/mpulse-real-user-monitoring">mPulse</a>: the suite of tools we use that provides us with metrics from real users. Averaging over the entire site, we can see the following improvements:</p>
+<ul>
+  <li>A <strong>5% decrease</strong> in <a href="https://web.dev/fid/"><abbr>FID</abbr></a>. First input delay is a measurement of how unresponsive a page feels to a user when they first try to interact with it.</li>
+  <li>A <strong>3% decrease</strong> in <a href="https://web.dev/inp/"><abbr>INP</abbr></a>. Interaction to next paint tracks how unresponsive a page during continuing use.</li>
+  <li>A <strong>3% decrease</strong> in <a href="https://web.dev/tbt/"><abbr>TBT</abbr></a>. Total blocking time is similar to <abbr>FID</abbr>, but looks at the overall total time to become usable.</li>
+  <li>A <strong>3% decrease</strong> in long tasks, which are defined as pieces of code that take more than 50ms to run.</li>
+  <li>A <strong>2.5% decrease</strong> in the overall decoded JavaScript size.</li>
+</ul>
+<p>As well as these global metrics, we also saw some major benefits on the search results page from disabling an unnecessary page checking library, leading to an <strong>11% decrease</strong> in total JavaScript size, and a <strong>22% reduction</strong> in <abbr>TBT</abbr> and long tasks.</p>
+<p>We were slightly surprised by how good these results were for a single day’s work! Of course, we didn’t doubt our teams’ abilities to find a bunch of unexpected savings, but an average 3% performance improvement was unexpected big.</p>
+<p>Of course, this isn’t the end of the work. There was lots of conversation on the day about potential further work to do, and we expect to see further improvements over time.</p>
+
+<h2>What have we learnt?</h2>
+<p>So this was one more successful hackathon for us. Bringing people together around a given subject for a day lets people make new connections within a large organisation. In the longer term this increases cross-team communication, which is always a good thing. And the more we run hackathons, the better we get at them: we’ve got plans for more similar events in the future.</p>
+<p>One thing that’s important to point out: this style of event is great for finding time to fix the obvious and easy stuff. If your problems are more structural and they’ll take longer to resolve then a hackathon or problem swarm is less effective: at that point you’ll need to be setting clear organisational goals.</p>
+<p>Finally, it was good to spend some time considering the subject of this hackathon. <a href="https://about.ikea.com/en/about-us/ikea-culture-and-values">IKEA’s values</a> — that we use to help us decide how to develop — include both cost consciousness and caring for people and planet. Making a faster site that requires less data and lets our customers use older devices for longer certainly embodies those values.</p>

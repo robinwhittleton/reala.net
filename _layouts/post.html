@@ -3,7 +3,9 @@ layout: default
 ---
 
 <article class="post">
-	{% if page.source == 'gds' %}
+	{% if page.source == 'ikea' %}
+		{% include ikea_attribution.html %}
+	{% elsif page.source == 'gds' %}
 		{% include gds_attribution.html %}
 	{% elsif page.source == 'kyan' %}
 		{% include kyan_attribution.html %}
