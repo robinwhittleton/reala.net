@@ -1,0 +1,53 @@
+---
+layout: post
+source: ikea
+title: IKEA × Windows high contrast mode
+canonical_url: https://medium.com/flat-pack-tech/ikea-windows-high-contrast-mode-38e4666acbe4
+---
+
+<p>I recently spent some time checking IKEA.com in Windows high contrast mode, and found quite a few places where easy improvements could be made. There’s a handful of techniques that I used to do this that seem worth writing down, in the hope more people will benefit.</p>
+
+<figure><img src="/assets/images/posts/2023-08-08-intro.webp" alt=""/></figure>
+
+{{ excerpt_separator }}
+
+<h2>What is Windows high contrast mode?</h2>
+<p>Windows has <a href="https://support.microsoft.com/en-us/windows/change-color-contrast-in-windows-fedc744c-90ac-69df-aed5-c8a90125e696">a set of high contrast themes</a> designed primarily for accessibility usecases. These can be turned on in Settings / Accessibility / Contrast themes. Although typically they appear to be a white-on-black theme, they’re unlike <a href="https://support.microsoft.com/en-us/windows/change-colors-in-windows-d26ef4d6-819a-581c-1581-493cfcc005fe">dark mode</a> in that they don’t simply change the colour palette; they also make borders much more visible and in some cases thicker. And also unlike dark mode, they aren’t just simply exposed as a media query to webpages, but forcibly override colours and backgrounds on all pages. In practice, this normally means that your text and borders will be overridden to be white, and your background to black.</p>
+<p>While great for people that need this level of contrast, the forced approach doesn’t always lead to perfectly working pages. As frontend developers we often produce overly complicated interface components, not realising that these might not end up looking like what we thought they would when they’re displayed on the user’s computer. The current preference for flat borderless design doesn’t help either: if we just rely on background colour to differentiate an element from its parent then we run the risk of both backgrounds being the same colour in Windows high contrast mode.</p>
+<p>Luckily, there’s a range of techniques that we can use to better meet your user’s needs.</p>
+
+<h2>Make sure that elements have borders</h2>
+<p>If your high contrast users will need to distinguish an element from its container then you’ll need to make sure that it has a border in place. Sometimes it’s easiest to add a border of the same colour as the background of the element, but luckily there’s an even easier way: a <code>transparent</code> border will also render as white in high contrast mode. It’s not necessarily common knowledge, but background colours paint underneath borders so your element won’t look any different for users not using high contrast mode. Of course, if you set a border and a size, you’ll need to use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing"><code>box-sizing: border-box</code></a> to retain its rendered size. Another useful trick: while background images don’t paint underneath borders by default (unlike background colours), adding <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin"><code>background-origin: border-box</code></a> will get them to do that.</p>
+<p>Once the element has a border then it will typically render as white in high contrast mode, providing your users with a visual indication of the end of one element and the start of the next. For example, by applying a transparent border to the default skeleton loading component, in high contrast mode it’ll render with an outline, successfully conveying the same meaning to the user.</p>
+
+<figure><img src="/assets/images/posts/2023-08-08-hc-skeleton.webp" alt="The left side of the screenshot shows a skeleton loading component before being fixed; there’s no loading indication apart from a busy mouse pointer. On the right, the skeleton components are now outlined with a white border, providing the same visual indication of structure as the default display."/></figure>
+
+<h2>Pick the right way to draw elements</h2>
+<p>There are many reasons to build custom interactive elements, for example functionality that the built-in element doesn’t support or the need to meet a brand requirement. However by using just CSS backgrounds, or an odd combination of backgrounds and borders, it’s possible to leave the user in a position where the components no longer work.</p>
+<p>The simple fix is to paint everything that should be visible to the user with border colour. This makes sure that it’ll show up correctly. For example, IKEA’s radio button was previously using a border colour for the outline, and a background colour for the selected state’s central dot. By rendering the dot with a border colour rather than a background colour we can make sure it appears in high contrast mode.</p>
+
+<figure><img src="/assets/images/posts/2023-08-08-hc-radio.webp" alt="The left side of the image shows a radio button where the central dot hasn’t been correctly drawn and is invisible. On the right side this shows up correctly as a white dot inside a white ring, on a black background."/></figure>
+
+<h2>Opting out from high contrast mode colour adjustment</h2>
+<p>Obviously, you wouldn’t want to block high contrast mode in general, but there can be specific places in the system where you’d want to do this. Typically this is when you’re using coloured backgrounds and borders to build surrogate images. For an example, at IKEA we use background colours for the colour swatches in our search filters. Even though there’s also text, the swatches need to remain in place to make visual sense. By using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/forced-color-adjust"><code>forced-color-adjust: none</code></a> CSS rule applied just to the colour swatches, we can opt them out from high contrast mode and get the colours back.</p>
+
+<figure><img src="/assets/images/posts/2023-08-08-hc-swatch.webp" alt="In the left side of the image, IKEA colour filter swatches show up as empty white circles in high contrast mode. On the right, after the fix, the white circles are filled with the correct colours."/></figure>
+
+<p>Another example for this would be status icons, where both shape and colour are used to convey information.</p>
+
+<figure><img src="/assets/images/posts/2023-08-08-hc-status.webp" alt="The top row of the image shows the different stats of the broken status indicators, which generally look like a white circle sometimes overlaid with black lines. The bottom row shows the fixed status indicators, which have specific colours and patterns that match those outside of high contrast mode."/></figure>
+
+<p>You should keep this usage to a necessary minimum. If you need to adjust specifically for high contrast mode then you should make sure that, where possible, your changes retain a high level of contrast.</p>
+
+<h2>Making specific adjustments for high contrast mode</h2>
+<p>So on that subject, how do you tell if you’re in high contrast mode or not? Luckily we’ve got the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors"><code>forced-colors</code></a> media query. But selecting for when we’re in high contrast mode (for example with <code>@media (forced-colors: active))</code> we can make appropriate changes as necessary. For example, at IKEA we have custom styling for a loading bar, that’s based on the <abbr>HTML</abbr> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress"><code>progress</code></a> element. As it’s somewhat tricky to style and completely broken in high constrast mode, the best thing was simply to use this media query to revert most of the styling, leaving us with a native display.</p>
+
+<figure><img src="/assets/images/posts/2023-08-08-hc-progress.webp" alt="The top part of the image is a screenshot of the broken progress bar, that displays nothing but the status text below. The lower part shows a native progress bar, that works well in high contrast mode."/></figure>
+
+<p>Another adjustment you can make inside a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors"><code>forced-colors</code></a> media query is to help users understand what state your application is in, for example when you’re displaying disabled components. Although disabling user interface components is generally something to avoid, it’s necessary occasionally. Typically we do this by changing the colours used in the component to a palette of lighter greys. As we’ve seen above colours are set to white in high contrast mode; luckily CSS provides <a href="https://www.w3.org/TR/css-color-4/#css-system-colors">a series of system colours</a> that we can use inside forced colours mode. One in particular is called <code>GrayText</code>, and is described as <q>Disabled text. (Often, but not necessarily, gray.)</q> Perfect! We can then use that to change the colour of our borders and text to communicate disabled state to our users.</p>
+
+<figure><img src="/assets/images/posts/2023-08-08-hc-button.webp" alt="The left side of the image is a screenshot of a normal button in high contrast mode. The right side shows the same button that now corrrectly shows its disabled state with grey borders and text."/></figure>
+
+<h2>Further work</h2>
+<p>We’ve still got plenty more to do to make IKEA.com work well for high contrast mode users, and, more generally, users who set colours in their browsers that best meet their needs. Ensuring that our design system’s components support forced colours makes it more likely that the overall site will work for those users, and better documentation on the subject will help teams make their own interfaces more accessible.</p>
+<p>Another area that we could investigate is building a variant of our design system designed to give a higher level of contrast. Systems like iOS, macOS and Android have high contrast settings that don’t specifically override website colours. Browsers will, however, expose the setting in CSS through the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast"><code>prefers-contrast</code></a> media query. We could use this to change our colour tokens to do things like increase the contrast of the text or add additional borders, which still presenting the user with an experience that’s consistent with the IKEA brand. This sort of change needs to be carefully designed, but could have positive benefits for a good number of users.</p>
