@@ -319,7 +319,7 @@
   image: yama.jpg
 
 - title: The Enormous Room
-  author: E. E. Cummings
+  author: <abbr>E. E.</abbr> Cummings
   link: https://standardebooks.org/ebooks/e-e-cummings/the-enormous-room
   image: the-enormous-room.jpg
 
@@ -334,7 +334,7 @@
   image: sanine.jpg
 
 - title: Hindu Tales from the Sanskrit
-  author: S. M. Mitra
+  author: <abbr>S. M.</abbr> Mitra
   link: https://standardebooks.org/ebooks/s-m-mitra/hindu-tales-from-the-sanskrit
   image: hindu-tales-from-the-sanskrit.jpg
 
@@ -364,7 +364,7 @@
   image: pelle-the-conqueror.jpg
 
 - title: The Middle Temple Murder
-  author: J. S. Fletcher
+  author: <abbr>J. S.</abbr> Fletcher
   link: https://standardebooks.org/ebooks/j-s-fletcher/the-middle-temple-murder
   image: the-middle-temple-murder.jpg
 
@@ -374,17 +374,17 @@
   image: short-fiction-kuprin.jpg
 
 - title: The Amateur Cracksman
-  author: E. W. Hornung
+  author: <abbr>E. W.</abbr> Hornung
   link: https://standardebooks.org/ebooks/e-w-hornung/the-amateur-cracksman
   image: the-amateur-cracksman.jpg
 
 - title: The Black Mask
-  author: E. W. Hornung
+  author: <abbr>E. W.</abbr> Hornung
   link: https://standardebooks.org/ebooks/e-w-hornung/the-black-mask
   image: the-black-mask.jpg
 
 - title: A Thief in the Night
-  author: E. W. Hornung
+  author: <abbr>E. W.</abbr> Hornung
   link: https://standardebooks.org/ebooks/e-w-hornung/a-thief-in-the-night
   image: a-thief-in-the-night.jpg
 
@@ -424,7 +424,7 @@
   image: inspector-frenchs-greatest-case.jpg
 
 - title: Bulldog Drummond
-  author: H. C. McNeile
+  author: <abbr>H. C.</abbr> McNeile
   link: https://standardebooks.org/ebooks/h-c-mcneile/bulldog-drummond
   image: bulldog-drummond.jpg
 
@@ -442,3 +442,18 @@
   author: Victor Hugo
   link: https://standardebooks.org/ebooks/victor-hugo/toilers-of-the-sea/william-moy-thomas
   image: toilers-of-the-sea.jpg
+
+- title: Poetry
+  author: Edgar Allen Poe
+  link: https://standardebooks.org/ebooks/edgar-allan-poe/poetry
+  image: poetry-poe.jpg
+
+- title: The Blue Bird
+  author: Maurice Maeterlinck and Georgette LeBlanc
+  link: https://standardebooks.org/ebooks/maurice-maeterlinck_georgette-leblanc/the-blue-bird/alexander-teixeira-de-mattos
+  image: the-blue-bird.jpg
+
+- title: Erewhon Revisited
+  author: Samuel Butler
+  link: https://standardebooks.org/ebooks/samuel-butler/erewhon-revisited
+  image: erewhon-revisited.jpg
